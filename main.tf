@@ -29,7 +29,7 @@ module "account_settings" {
 
 module "cos" {
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "7.1.3"
+  version           = "7.1.4"
   resource_group_id = module.resource_group.resource_group_id
   bucket_configs = [{
     access_tags                   = var.cos_bucket_access_tags
@@ -78,7 +78,7 @@ resource "ibm_iam_authorization_policy" "atracker_cos" {
 
 module "activity_tracker" {
   source  = "terraform-ibm-modules/observability-instances/ibm//modules/activity_tracker"
-  version = "2.10.3"
+  version = "2.11.0"
   providers = {
     logdna.at = logdna.at
   }
