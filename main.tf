@@ -4,13 +4,13 @@
 
 module "resource_group" {
   source              = "terraform-ibm-modules/resource-group/ibm"
-  version             = "1.1.4"
+  version             = "1.1.5"
   resource_group_name = var.resource_group_name
 }
 
 module "account_settings" {
   source                       = "terraform-ibm-modules/iam-account-settings/ibm"
-  version                      = "2.5.0"
+  version                      = "2.8.1"
   access_token_expiration      = var.access_token_expiration
   active_session_timeout       = var.active_session_timeout
   allowed_ip_addresses         = var.allowed_ip_addresses
@@ -29,7 +29,7 @@ module "account_settings" {
 
 module "cos" {
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "7.1.3"
+  version           = "7.5.0"
   resource_group_id = module.resource_group.resource_group_id
   bucket_configs = [{
     access_tags                   = var.cos_bucket_access_tags
@@ -78,7 +78,7 @@ resource "ibm_iam_authorization_policy" "atracker_cos" {
 
 module "activity_tracker" {
   source  = "terraform-ibm-modules/observability-instances/ibm//modules/activity_tracker"
-  version = "2.10.3"
+  version = "2.11.1"
   providers = {
     logdna.at = logdna.at
   }
@@ -104,7 +104,7 @@ module "activity_tracker" {
 
 module "trusted_profile_projects" {
   source                      = "terraform-ibm-modules/trusted-profile/ibm"
-  version                     = "1.0.1"
+  version                     = "1.0.3"
   trusted_profile_name        = var.trusted_profile_name
   trusted_profile_description = var.trusted_profile_description
   trusted_profile_policies = [{
