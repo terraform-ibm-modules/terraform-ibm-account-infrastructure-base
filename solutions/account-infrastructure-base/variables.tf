@@ -44,3 +44,15 @@ variable "allowed_ip_addresses" {
   description = "List of the IP addresses and subnets from which IAM tokens can be created for the account."
   type        = list(string)
 }
+
+variable "custom_roles" {
+  description = "IAM custom roles for Access Groups"
+  type = list(object({
+    name         = string
+    service      = string
+    display_name = string
+    actions      = list(string)
+    description  = optional(string, "")
+  }))
+  default = []
+}

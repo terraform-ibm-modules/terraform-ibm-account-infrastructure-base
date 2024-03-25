@@ -41,6 +41,16 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 		"allowed_ip_addresses": []string{
 			"0.0.0.0/0",
 		},
+		"custom_roles": []map[string]interface{}{
+			{
+				"actions": []string{
+					"cloud-object-storage.bucket.get",
+				},
+				"display_name": "account-base-test-custom-role",
+				"name":         "AccountBaseTestCustomRole",
+				"service":      "cloud-object-storage",
+			},
+		},
 	}
 
 	return options
