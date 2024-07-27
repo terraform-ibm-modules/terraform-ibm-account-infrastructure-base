@@ -77,4 +77,19 @@ module "account_infrastructure_base" {
   provision_trusted_profile_projects = var.provision_trusted_profile_projects
   trusted_profile_description        = var.trusted_profile_description
   trusted_profile_roles              = var.trusted_profile_roles
+
+  # cbr
+  provision_cbr                              = var.provision_cbr
+  cbr_prefix                                 = var.prefix
+  cbr_allow_cos_to_kms                       = var.cbr_allow_cos_to_kms
+  cbr_allow_block_storage_to_kms             = var.cbr_allow_block_storage_to_kms
+  cbr_allow_roks_to_kms                      = var.cbr_allow_roks_to_kms
+  cbr_allow_icd_to_kms                       = var.cbr_allow_icd_to_kms
+  cbr_allow_event_streams_to_kms             = var.cbr_allow_event_streams_to_kms
+  cbr_allow_vpcs_to_container_registry       = var.cbr_allow_vpcs_to_container_registry
+  cbr_allow_vpcs_to_cos                      = var.cbr_allow_vpcs_to_cos
+  cbr_allow_at_to_cos                        = var.cbr_allow_at_to_cos
+  cbr_allow_iks_to_is                        = var.cbr_allow_iks_to_is
+  cbr_allow_is_to_cos                        = var.cbr_allow_is_to_cos
+  cbr_kms_service_targeted_by_prewired_rules = var.cbr_kms_service_targeted_by_prewired_rules
 }
