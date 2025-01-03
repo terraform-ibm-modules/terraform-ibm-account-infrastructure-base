@@ -184,7 +184,7 @@ module "account_settings" {
 module "cos" {
   count             = var.provision_atracker_cos ? 1 : 0
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "8.13.5"
+  version           = "8.16.3"
   resource_group_id = local.cos_rg
   bucket_configs = [{
     access_tags                   = var.cos_bucket_access_tags
@@ -226,7 +226,7 @@ module "cos" {
 module "activity_tracker" {
   count   = var.provision_atracker_cos ? 1 : 0
   source  = "terraform-ibm-modules/observability-instances/ibm//modules/activity_tracker"
-  version = "3.3.0"
+  version = "3.4.0"
   activity_tracker_routes = [
     {
       route_name = var.activity_tracker_route_name
@@ -255,7 +255,7 @@ moved {
 module "trusted_profile_projects" {
   count                       = var.provision_trusted_profile_projects ? 1 : 0
   source                      = "terraform-ibm-modules/trusted-profile/ibm"
-  version                     = "1.0.4"
+  version                     = "1.0.5"
   trusted_profile_name        = var.trusted_profile_name
   trusted_profile_description = var.trusted_profile_description
   trusted_profile_policies = [{
