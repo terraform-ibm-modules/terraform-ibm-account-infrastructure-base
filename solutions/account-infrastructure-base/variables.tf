@@ -33,8 +33,13 @@ variable "prefix" {
   # this value was determined based on the lowest prefix restriction located here:
   # https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone/blob/main/patterns/roks/variables.tf#L11
   validation {
-    condition     = (var.prefix == null || var.prefix == "") ? true : length(var.prefix) <= 13
-    error_message = "prefix` length must be 13 characters or less or null or an empty string (\"\")."
+    condition = (var.prefix == null ? true :
+      alltrue([
+        can(regex("^([a-z]|[a-z][-a-z0-9]{0,14}[a-z0-9])$|^$", var.prefix)),
+        length(regexall("^.*--.*", var.prefix)) == 0
+      ])
+    )
+    error_message = "Prefix must begin with a lowercase letter, contain only lowercase letters, numbers, and - characters. Prefixes must end with a lowercase letter or number and be 16 or fewer characters."
   }
 }
 
