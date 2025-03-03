@@ -231,9 +231,6 @@
               "key": "skip_cloud_shell_calls"
             },
             {
-              "key": "provision_activity_tracker_cos"
-            },
-            {
               "key": "region"
             },
             {
@@ -358,6 +355,9 @@
             },
             {
               "key": "skip_cos_kms_iam_auth_policy"
+            },
+            {
+              "key": "provision_activity_tracker_cos"
             },
             {
               "key": "skip_activity_tracker_cos_iam_auth_policy"
