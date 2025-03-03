@@ -36,11 +36,11 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 		Prefix:       prefix,
 	})
 	options.TerraformVars = map[string]interface{}{
-		"prefix":                 options.Prefix,
-		"kms_key_crn":            permanentResources["hpcs_south_root_key_crn"],
-		"provision_atracker_cos": true,
-		"provider_visibility":    "public",
-		"provision_cbr":          false, // disabling CBR rules until it is figured out how to run the tests in enterprise sub accounts
+		"prefix":                         options.Prefix,
+		"kms_key_crn":                    permanentResources["hpcs_south_root_key_crn"],
+		"provision_activity_tracker_cos": true,
+		"provider_visibility":            "public",
+		"provision_cbr":                  false, // disabling CBR rules until it is figured out how to run the tests in enterprise sub accounts
 		"allowed_ip_addresses": []string{
 			"0.0.0.0/0",
 			"::/0",

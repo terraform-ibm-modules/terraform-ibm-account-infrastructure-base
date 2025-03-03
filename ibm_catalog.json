@@ -99,6 +99,11 @@
               "key": "ibmcloud_api_key"
             },
             {
+              "key": "prefix",
+              "required": true,
+              "description":"Prefix to add to all resources created by this solution. If `provision_activity_tracker_cos` is true, this value will be converted to lowercase in all instances. To not use any prefix value, you can enter the string `__NULL__`."
+            },
+            {
               "key": "provider_visibility",
               "options": [
                 {
@@ -116,18 +121,22 @@
               ]
             },
             {
-              "key": "prefix",
-              "required": true,
-              "description":"Prefix to add to all resources created by this solution. To not use any prefix value, you can enter the string `__NULL__`."
-            },
-            {
               "key": "skip_iam_account_settings"
             },
             {
               "key": "access_token_expiration"
             },
             {
+              "key": "refresh_token_expiration"
+            },
+            {
               "key": "active_session_timeout"
+            },
+            {
+              "key": "inactive_session_timeout"
+            },
+            {
+              "key": "enforce_allowed_ip_addresses"
             },
             {
               "key": "allowed_ip_addresses",
@@ -155,12 +164,6 @@
                   "value": "NOT_SET"
                 }
               ]
-            },
-            {
-              "key": "enforce_allowed_ip_addresses"
-            },
-            {
-              "key": "inactive_session_timeout"
             },
             {
               "key": "max_sessions_per_identity"
@@ -195,12 +198,6 @@
               ]
             },
             {
-              "key": "public_access_enabled"
-            },
-            {
-              "key": "refresh_token_expiration"
-            },
-            {
               "key": "serviceid_creation",
               "options": [
                 {
@@ -218,12 +215,6 @@
               ]
             },
             {
-              "key": "shell_settings_enabled"
-            },
-            {
-              "key": "skip_cloud_shell_calls"
-            },
-            {
               "key": "user_mfa",
               "type": "array"
             },
@@ -231,7 +222,13 @@
               "key": "user_mfa_reset"
             },
             {
-              "key": "provision_atracker_cos"
+              "key": "enable_public_access"
+            },
+            {
+              "key": "enable_shell_settings"
+            },
+            {
+              "key": "skip_cloud_shell_calls"
             },
             {
               "key": "region"
@@ -240,13 +237,10 @@
               "key": "kms_key_crn"
             },
             {
-              "key": "skip_cos_kms_auth_policy"
-            },
-            {
               "key": "cos_instance_name"
             },
             {
-              "key": "resource_tags",
+              "key": "cos_instance_tags",
               "custom_config": {
                 "grouping": "deployment",
                 "original_grouping": "deployment",
@@ -292,13 +286,13 @@
               }
             },
             {
-              "key": "cos_bucket_expire_enabled"
+              "key": "enable_bucket_expiry"
             },
             {
               "key": "cos_bucket_expire_days"
             },
             {
-              "key": "cos_bucket_object_versioning_enabled"
+              "key": "enable_cos_bucket_object_versioning"
             },
             {
               "key": "cos_bucket_storage_class",
@@ -326,7 +320,7 @@
               ]
             },
             {
-              "key": "cos_bucket_archive_enabled"
+              "key": "enable_cos_bucket_archival"
             },
             {
               "key": "cos_bucket_archive_days"
@@ -345,22 +339,28 @@
               ]
             },
             {
-              "key": "cos_bucket_retention_default"
+              "key": "enable_cos_bucket_retention"
             },
             {
-              "key": "cos_bucket_retention_enabled"
+              "key": "enable_cos_bucket_permanent_retention"
             },
             {
-              "key": "cos_bucket_retention_maximum"
+              "key": "cos_bucket_default_retention_days"
             },
             {
-              "key": "cos_bucket_retention_minimum"
+              "key": "cos_bucket_minimum_retention_days"
             },
             {
-              "key": "cos_bucket_retention_permanent"
+              "key": "cos_bucket_maximum_retention_days"
             },
             {
-              "key": "skip_atracker_cos_iam_auth_policy"
+              "key": "skip_cos_kms_iam_auth_policy"
+            },
+            {
+              "key": "provision_activity_tracker_cos"
+            },
+            {
+              "key": "skip_activity_tracker_cos_iam_auth_policy"
             },
             {
               "key": "cos_bucket_management_endpoint_type",
@@ -418,40 +418,40 @@
               "key": "audit_resource_group_name"
             },
             {
-              "key": "devops_resource_group_name"
-            },
-            {
-              "key": "edge_resource_group_name"
-            },
-            {
-              "key": "management_resource_group_name"
-            },
-            {
-              "key": "observability_resource_group_name"
-            },
-            {
-              "key": "security_resource_group_name"
-            },
-            {
-              "key": "workload_resource_group_name"
-            },
-            {
               "key": "existing_audit_resource_group_name"
+            },
+            {
+              "key": "devops_resource_group_name"
             },
             {
               "key": "existing_devops_resource_group_name"
             },
             {
+              "key": "edge_resource_group_name"
+            },
+            {
               "key": "existing_edge_resource_group_name"
+            },
+            {
+              "key": "management_resource_group_name"
             },
             {
               "key": "existing_management_resource_group_name"
             },
             {
+              "key": "observability_resource_group_name"
+            },
+            {
               "key": "existing_observability_resource_group_name"
             },
             {
+              "key": "security_resource_group_name"
+            },
+            {
               "key": "existing_security_resource_group_name"
+            },
+            {
+              "key": "workload_resource_group_name"
             },
             {
               "key": "existing_workload_resource_group_name"

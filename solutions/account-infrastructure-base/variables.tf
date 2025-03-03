@@ -7,6 +7,7 @@ variable "ibmcloud_api_key" {
   description = "The IBM Cloud API key that is used by the provider to authenticate with IBM Cloud to create the resources."
   sensitive   = true
 }
+
 variable "provider_visibility" {
   description = "Set the visibility value for the IBM terraform provider. Supported values are `public`, `private`, `public-and-private`. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints)."
   type        = string
@@ -17,16 +18,17 @@ variable "provider_visibility" {
     error_message = "Invalid visibility option. Allowed values are 'public', 'private', or 'public-and-private'."
   }
 }
+
 variable "region" {
   type        = string
-  description = "The region to provision the Object Storage resources created by this solution. Only required if `provision_atracker_cos` is true."
+  description = "The region to provision the Object Storage resources created by this solution. Only required if `provision_activity_tracker_cos` is true."
   default     = "us-south"
   nullable    = false
 }
 
 variable "prefix" {
   type        = string
-  description = "An optional prefix to add to all resources created by this solution. If `provision_atracker_cos` is true, this value will be converted to lowercase in all instances. To not use any prefix value, you can set this value to `null` or an empty string."
+  description = "The prefix to add to all resources that this solution creates. If `provision_activity_tracker_cos` is true, this value will be converted to lowercase in all instances. To not use any prefix value, you can set this value to `null` or an empty string."
   default     = "dev"
 
   # prefix restriction due to limitations when using multiple DAs in stacks
@@ -43,15 +45,9 @@ variable "prefix" {
   }
 }
 
-variable "resource_tags" {
-  type        = list(string)
-  description = "An optional list of tags to be added to the Object Storage resources created by this solution. Required only if `provision_atracker_cos` is true."
-  default     = []
-}
-
 variable "kms_key_crn" {
   type        = string
-  description = "The CRN of the key management service key to encrypt the Object Storage bucket. Required if `provision_atracker_cos` is true."
+  description = "The CRN of the key management service key to encrypt the Object Storage bucket. Required if `provision_activity_tracker_cos` is true."
   default     = null
 }
 
@@ -71,15 +67,15 @@ variable "allowed_ip_addresses" {
   default     = []
 }
 
-variable "provision_atracker_cos" {
+variable "provision_activity_tracker_cos" {
   type        = bool
   description = "Whether to enable creating an Activity Tracker route, Object Storage instance, and bucket."
   default     = false
 }
 
-variable "skip_cos_kms_auth_policy" {
+variable "skip_cos_kms_iam_auth_policy" {
   type        = bool
-  description = "Whether to enable creating an IAM authoriation policy between the IBM Cloud Object Storage instance and the Key Management service instance of the CRN provided in `var.kms_key_crn`. This variable has no effect if `var.provision_atracker_cos` is false."
+  description = "Whether to enable creating an IAM authoriation policy between the IBM Cloud Object Storage instance and the Key Management service instance of the CRN provided in `var.kms_key_crn`. This variable has no effect if `var.provision_activity_tracker_cos` is false."
   default     = false
 }
 
@@ -109,7 +105,7 @@ variable "existing_audit_resource_group_name" {
 
 variable "observability_resource_group_name" {
   type        = string
-  description = "The name of the observability resource group to create. Required if `provision_atracker_cos` is true and `existing_cos_resource_group_name` is not provided. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<observability_resource_group_name>`."
+  description = "The name of the observability resource group to create. Required if `provision_activity_tracker_cos` is true and `existing_cos_resource_group_name` is not provided. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<observability_resource_group_name>`."
   default     = "observability-rg"
 }
 
@@ -199,7 +195,7 @@ variable "enforce_allowed_ip_addresses" {
 
 variable "inactive_session_timeout" {
   type        = string
-  description = "The maximum time in seconds before an inactive user is signed out and their credentials are required again. The maximum duration a user can be inactive is 24 hours."
+  description = "The maximum time in seconds before an inactive user is signed out and their credentials are required again. The maximum duration a user can be inactive is 2 hours."
   default     = "7200"
 }
 
@@ -215,7 +211,7 @@ variable "mfa" {
   default     = "TOTP4ALL"
 }
 
-variable "public_access_enabled" {
+variable "enable_public_access" {
   type        = bool
   description = "Whether to enable or disable the public access group. Assigning an access policy to the access group opens access to that resource to anyone whether they're a member of your account or not because authentication is no longer required. When set to false, the public access group is disabled."
   default     = false
@@ -233,7 +229,7 @@ variable "serviceid_creation" {
   default     = "RESTRICTED"
 }
 
-variable "shell_settings_enabled" {
+variable "enable_shell_settings" {
   type        = bool
   description = "Whether to allow CLI logins with only a password. Set to false for a higher level of security."
   default     = false
@@ -260,16 +256,23 @@ variable "user_mfa_reset" {
   default     = false
 }
 
+
+variable "cos_instance_name" {
+  type        = string
+  description = "The name for the Object Storage instance that this module provisions. Required if the variable `provision_activity_tracker_cos` is true."
+  default     = null
+}
+
 variable "cos_plan" {
   type        = string
   description = "The pricing plan of the Object Storage instance created by the module."
   default     = "standard"
 }
 
-variable "cos_instance_name" {
-  type        = string
-  description = "The name for the Object Storage instance that this module provisions. Required if the variable `provision_atracker_cos` is true."
-  default     = null
+variable "cos_instance_tags" {
+  type        = list(string)
+  description = "An optional list of tags to be added to the Object Storage resources created by this solution. Required only if `provision_activity_tracker_cos` is true."
+  default     = []
 }
 
 variable "cos_instance_access_tags" {
@@ -280,7 +283,7 @@ variable "cos_instance_access_tags" {
 
 variable "cos_bucket_name" {
   type        = string
-  description = "The name for the Object Storage bucket that stores Activity Tracker logs. Required if variable `provision_atracker_cos` is true."
+  description = "The name for the Object Storage bucket that stores Activity Tracker logs. Required if variable `provision_activity_tracker_cos` is true."
   default     = null
 }
 
@@ -290,9 +293,10 @@ variable "cos_bucket_access_tags" {
   default     = []
 }
 
-variable "cos_bucket_expire_enabled" {
+
+variable "enable_bucket_expiry" {
   type        = bool
-  description = "Whether to enable the expiration rule on the Object Storage bucket. Specify the number of days in the variable `cos_bucket_expire_days`."
+  description = "Whether to enable the expiration rule on the Objects stored in bucket. Specify the number of days in the variable `cos_bucket_expire_days`."
   default     = false
 }
 
@@ -302,7 +306,7 @@ variable "cos_bucket_expire_days" {
   default     = 365
 }
 
-variable "cos_bucket_object_versioning_enabled" {
+variable "enable_cos_bucket_object_versioning" {
   type        = bool
   description = "Whether to enable versioning on the bucket."
   default     = false
@@ -314,9 +318,9 @@ variable "cos_bucket_storage_class" {
   default     = "smart"
 }
 
-variable "cos_bucket_archive_enabled" {
+variable "enable_cos_bucket_archival" {
   type        = bool
-  description = "Whether to enable archiving on the Object Storage bucket."
+  description = "Whether to enable archival on the Objects in Storage bucket."
   default     = false
 }
 
@@ -332,37 +336,37 @@ variable "cos_bucket_archive_type" {
   default     = "Glacier"
 }
 
-variable "cos_bucket_retention_enabled" {
+variable "enable_cos_bucket_retention" {
   type        = bool
   description = "Whether to enable retention for the Object Storage bucket."
   default     = false
 }
 
-variable "cos_bucket_retention_default" {
+variable "cos_bucket_default_retention_days" {
   description = "The default duration of time in days that an object can be kept unmodified in an Object Storage bucket."
   type        = number
   default     = 90
 }
 
-variable "cos_bucket_retention_maximum" {
+variable "cos_bucket_maximum_retention_days" {
   description = "The maximum duration of time in days that an object can be kept unmodified in an Object Storage bucket."
   type        = number
   default     = 350
 }
 
-variable "cos_bucket_retention_minimum" {
+variable "cos_bucket_minimum_retention_days" {
   description = "The minimum duration of time in days that an object must be kept unmodified for Object Storage bucket."
   type        = number
   default     = 90
 }
 
-variable "cos_bucket_retention_permanent" {
+variable "enable_cos_bucket_permanent_retention" {
   description = "Whether to enable a permanent retention status for the Object Storage bucket."
   type        = bool
   default     = false
 }
 
-variable "skip_atracker_cos_iam_auth_policy" {
+variable "skip_activity_tracker_cos_iam_auth_policy" {
   type        = bool
   description = "Whether to skip creating an IAM authorization policy that grants the Activity Tracker service Object Writer access to the Object Storage instance that is provisioned by this module. If set to true, you must ensure the authorization policy exists on the account before running the module."
   default     = false
@@ -370,13 +374,13 @@ variable "skip_atracker_cos_iam_auth_policy" {
 
 variable "cos_target_name" {
   type        = string
-  description = "The name of the Object Storage target for Activity Tracker. Required if variable `provision_atracker_cos` is true."
+  description = "The name of the Object Storage target for Activity Tracker. Required if variable `provision_activity_tracker_cos` is true."
   default     = null
 }
 
 variable "activity_tracker_route_name" {
   type        = string
-  description = "The name of the route for Activity Tracker. Required if variable `provision_atracker_cos` is true."
+  description = "The name of the route for Activity Tracker. Required if variable `provision_activity_tracker_cos` is true."
   default     = null
 }
 

@@ -3,7 +3,7 @@
 ########################################################################################################################
 
 locals {
-  prefix = var.provision_atracker_cos ? (var.prefix != null && var.prefix != "" ? lower(var.prefix) : null) : var.prefix
+  prefix = var.provision_activity_tracker_cos ? (var.prefix != null && var.prefix != "" ? lower(var.prefix) : null) : var.prefix
   target_service_details = {
     "IAM" = {
       enforcement_mode = var.cbr_enforcement_mode
@@ -181,31 +181,31 @@ module "account_infrastructure_base" {
   existing_workload_resource_group_name      = var.existing_workload_resource_group_name
 
   # atracker + cos
-  provision_atracker_cos               = var.provision_atracker_cos
-  skip_cos_kms_auth_policy             = var.skip_cos_kms_auth_policy
-  cos_instance_name                    = !var.provision_atracker_cos ? null : (var.cos_instance_name == null ? try("${local.prefix}-cos-instance", "cos-instance") : var.cos_instance_name)
-  cos_bucket_name                      = !var.provision_atracker_cos ? null : (var.cos_bucket_name == null ? try("${local.prefix}-cos-bucket", "cos-bucket") : lower(var.cos_bucket_name))
-  cos_target_name                      = !var.provision_atracker_cos ? null : (var.cos_target_name == null ? try("${local.prefix}-cos-target", "cos-target") : var.cos_target_name)
+  provision_atracker_cos               = var.provision_activity_tracker_cos
+  skip_cos_kms_auth_policy             = var.skip_cos_kms_iam_auth_policy
+  cos_instance_name                    = !var.provision_activity_tracker_cos ? null : (var.cos_instance_name == null ? try("${local.prefix}-cos-instance", "cos-instance") : var.cos_instance_name)
+  cos_bucket_name                      = !var.provision_activity_tracker_cos ? null : (var.cos_bucket_name == null ? try("${local.prefix}-cos-bucket", "cos-bucket") : lower(var.cos_bucket_name))
+  cos_target_name                      = !var.provision_activity_tracker_cos ? null : (var.cos_target_name == null ? try("${local.prefix}-cos-target", "cos-target") : var.cos_target_name)
   activity_tracker_route_name          = var.activity_tracker_route_name == null ? try("${local.prefix}-cos-route", "cos-route") : var.activity_tracker_route_name
   cos_bucket_management_endpoint_type  = var.cos_bucket_management_endpoint_type
   kms_key_crn                          = var.kms_key_crn
-  resource_tags                        = var.resource_tags
+  resource_tags                        = var.cos_instance_tags
   cos_plan                             = var.cos_plan
   cos_instance_access_tags             = var.cos_instance_access_tags
   cos_bucket_access_tags               = var.cos_bucket_access_tags
-  cos_bucket_expire_enabled            = var.cos_bucket_expire_enabled
+  cos_bucket_expire_enabled            = var.enable_bucket_expiry
   cos_bucket_expire_days               = var.cos_bucket_expire_days
-  cos_bucket_object_versioning_enabled = var.cos_bucket_object_versioning_enabled
+  cos_bucket_object_versioning_enabled = var.enable_cos_bucket_object_versioning
   cos_bucket_storage_class             = var.cos_bucket_storage_class
-  cos_bucket_archive_enabled           = var.cos_bucket_archive_enabled
+  cos_bucket_archive_enabled           = var.enable_cos_bucket_archival
   cos_bucket_archive_days              = var.cos_bucket_archive_days
   cos_bucket_archive_type              = var.cos_bucket_archive_type
-  cos_bucket_retention_enabled         = var.cos_bucket_retention_enabled
-  cos_bucket_retention_default         = var.cos_bucket_retention_default
-  cos_bucket_retention_maximum         = var.cos_bucket_retention_maximum
-  cos_bucket_retention_minimum         = var.cos_bucket_retention_minimum
-  cos_bucket_retention_permanent       = var.cos_bucket_retention_permanent
-  skip_atracker_cos_iam_auth_policy    = var.skip_atracker_cos_iam_auth_policy
+  cos_bucket_retention_enabled         = var.enable_cos_bucket_retention
+  cos_bucket_retention_default         = var.cos_bucket_default_retention_days
+  cos_bucket_retention_maximum         = var.cos_bucket_maximum_retention_days
+  cos_bucket_retention_minimum         = var.cos_bucket_minimum_retention_days
+  cos_bucket_retention_permanent       = var.enable_cos_bucket_permanent_retention
+  skip_atracker_cos_iam_auth_policy    = var.skip_activity_tracker_cos_iam_auth_policy
   activity_tracker_locations           = var.activity_tracker_locations
 
   # iam account settings
@@ -218,10 +218,10 @@ module "account_infrastructure_base" {
   inactive_session_timeout     = var.inactive_session_timeout
   max_sessions_per_identity    = var.max_sessions_per_identity
   mfa                          = var.mfa
-  public_access_enabled        = var.public_access_enabled
+  public_access_enabled        = var.enable_public_access
   refresh_token_expiration     = var.refresh_token_expiration
   serviceid_creation           = var.serviceid_creation
-  shell_settings_enabled       = var.shell_settings_enabled
+  shell_settings_enabled       = var.enable_shell_settings
   skip_cloud_shell_calls       = var.skip_cloud_shell_calls
   user_mfa                     = var.user_mfa
   user_mfa_reset               = var.user_mfa_reset
