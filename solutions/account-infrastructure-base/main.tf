@@ -3,7 +3,6 @@
 ########################################################################################################################
 
 locals {
-  prefix = var.provision_activity_tracker_cos ? (var.prefix != null && var.prefix != "" ? lower(var.prefix) : null) : var.prefix
   target_service_details = {
     "IAM" = {
       enforcement_mode = var.cbr_enforcement_mode
@@ -162,51 +161,24 @@ locals {
 
 module "account_infrastructure_base" {
   source = "../.."
-  region = var.region
 
   # resource groups
-  audit_resource_group_name                  = try("${local.prefix}-${var.audit_resource_group_name}", var.audit_resource_group_name, null)
-  existing_audit_resource_group_name         = var.existing_audit_resource_group_name
-  devops_resource_group_name                 = try("${local.prefix}-${var.devops_resource_group_name}", var.devops_resource_group_name, null)
-  existing_devops_resource_group_name        = var.existing_devops_resource_group_name
-  edge_resource_group_name                   = try("${local.prefix}-${var.edge_resource_group_name}", var.edge_resource_group_name, null)
-  existing_edge_resource_group_name          = var.existing_edge_resource_group_name
-  management_resource_group_name             = try("${local.prefix}-${var.management_resource_group_name}", var.management_resource_group_name, null)
-  existing_management_resource_group_name    = var.existing_management_resource_group_name
-  observability_resource_group_name          = try("${local.prefix}-${var.observability_resource_group_name}", var.observability_resource_group_name, null)
-  existing_observability_resource_group_name = var.existing_observability_resource_group_name
-  security_resource_group_name               = try("${local.prefix}-${var.security_resource_group_name}", var.security_resource_group_name, null)
-  existing_security_resource_group_name      = var.existing_security_resource_group_name
-  workload_resource_group_name               = try("${local.prefix}-${var.workload_resource_group_name}", var.workload_resource_group_name, null)
-  existing_workload_resource_group_name      = var.existing_workload_resource_group_name
-
-  # atracker + cos
-  provision_atracker_cos               = var.provision_activity_tracker_cos
-  skip_cos_kms_auth_policy             = var.skip_cos_kms_iam_auth_policy
-  cos_instance_name                    = !var.provision_activity_tracker_cos ? null : (var.cos_instance_name == null ? try("${local.prefix}-cos-instance", "cos-instance") : var.cos_instance_name)
-  cos_bucket_name                      = !var.provision_activity_tracker_cos ? null : (var.cos_bucket_name == null ? try("${local.prefix}-cos-bucket", "cos-bucket") : lower(var.cos_bucket_name))
-  cos_target_name                      = !var.provision_activity_tracker_cos ? null : (var.cos_target_name == null ? try("${local.prefix}-cos-target", "cos-target") : var.cos_target_name)
-  activity_tracker_route_name          = var.activity_tracker_route_name == null ? try("${local.prefix}-cos-route", "cos-route") : var.activity_tracker_route_name
-  cos_bucket_management_endpoint_type  = var.cos_bucket_management_endpoint_type
-  kms_key_crn                          = var.kms_key_crn
-  resource_tags                        = var.cos_instance_tags
-  cos_plan                             = var.cos_plan
-  cos_instance_access_tags             = var.cos_instance_access_tags
-  cos_bucket_access_tags               = var.cos_bucket_access_tags
-  cos_bucket_expire_enabled            = var.enable_bucket_expiry
-  cos_bucket_expire_days               = var.cos_bucket_expire_days
-  cos_bucket_object_versioning_enabled = var.enable_cos_bucket_object_versioning
-  cos_bucket_storage_class             = var.cos_bucket_storage_class
-  cos_bucket_archive_enabled           = var.enable_cos_bucket_archival
-  cos_bucket_archive_days              = var.cos_bucket_archive_days
-  cos_bucket_archive_type              = var.cos_bucket_archive_type
-  cos_bucket_retention_enabled         = var.enable_cos_bucket_retention
-  cos_bucket_retention_default         = var.cos_bucket_default_retention_days
-  cos_bucket_retention_maximum         = var.cos_bucket_maximum_retention_days
-  cos_bucket_retention_minimum         = var.cos_bucket_minimum_retention_days
-  cos_bucket_retention_permanent       = var.enable_cos_bucket_permanent_retention
-  skip_atracker_cos_iam_auth_policy    = var.skip_activity_tracker_cos_iam_auth_policy
-  activity_tracker_locations           = var.activity_tracker_locations
+  global_resource_group_name                = try("${var.prefix}-${var.global_resource_group_name}", var.global_resource_group_name, null)
+  use_existing_global_resource_group        = var.use_existing_global_resource_group
+  audit_resource_group_name                 = try("${var.prefix}-${var.audit_resource_group_name}", var.audit_resource_group_name, null)
+  use_existing_audit_resource_group         = var.use_existing_audit_resource_group
+  devops_resource_group_name                = try("${var.prefix}-${var.devops_resource_group_name}", var.devops_resource_group_name, null)
+  use_existing_devops_resource_group        = var.use_existing_devops_resource_group
+  edge_resource_group_name                  = try("${var.prefix}-${var.edge_resource_group_name}", var.edge_resource_group_name, null)
+  use_existing_edge_resource_group          = var.use_existing_edge_resource_group
+  management_resource_group_name            = try("${var.prefix}-${var.management_resource_group_name}", var.management_resource_group_name, null)
+  use_existing_management_resource_group    = var.use_existing_management_resource_group
+  observability_resource_group_name         = try("${var.prefix}-${var.observability_resource_group_name}", var.observability_resource_group_name, null)
+  use_existing_observability_resource_group = var.use_existing_observability_resource_group
+  security_resource_group_name              = try("${var.prefix}-${var.security_resource_group_name}", var.security_resource_group_name, null)
+  use_existing_security_resource_group      = var.use_existing_security_resource_group
+  workload_resource_group_name              = try("${var.prefix}-${var.workload_resource_group_name}", var.workload_resource_group_name, null)
+  use_existing_workload_resource_group      = var.use_existing_workload_resource_group
 
   # iam account settings
   skip_iam_account_settings    = var.skip_iam_account_settings
@@ -227,7 +199,7 @@ module "account_infrastructure_base" {
   user_mfa_reset               = var.user_mfa_reset
 
   # trusted profile
-  trusted_profile_name               = var.trusted_profile_name == null ? try("${local.prefix}-trusted-profile", "projects-trusted-profile") : var.trusted_profile_name
+  trusted_profile_name               = var.trusted_profile_name == null ? try("${var.prefix}-trusted-profile", "projects-trusted-profile") : var.trusted_profile_name
   provision_trusted_profile_projects = var.provision_trusted_profile_projects
   trusted_profile_description        = var.trusted_profile_description
   trusted_profile_roles              = var.trusted_profile_roles

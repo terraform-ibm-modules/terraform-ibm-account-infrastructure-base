@@ -2,6 +2,23 @@
 # Account Variables
 ########################################################################################################################
 
+variable "global_resource_group_name" {
+  type        = string
+  description = "The name of the global resource group to create, takes precedence over all other resource group name variables."
+  default     = null
+
+  validation {
+    condition     = length(coalesce(var.global_resource_group_name, "null")) <= 40
+    error_message = "`global_resource_group_name` must be 40 characters or less."
+  }
+}
+
+variable "use_existing_global_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `global_resource_group_name`."
+  default     = false
+}
+
 variable "security_resource_group_name" {
   type        = string
   description = "The name of the security resource group to create."
@@ -13,15 +30,10 @@ variable "security_resource_group_name" {
   }
 }
 
-variable "existing_security_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for security resources, takes precedence over `security_resource_group_name`."
-  default     = null
-
-  validation {
-    condition     = length(coalesce(var.existing_security_resource_group_name, "null")) <= 40
-    error_message = "`existing_security_resource_group_name` must be 40 characters or less."
-  }
+variable "use_existing_security_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `security_resource_group_name`."
+  default     = false
 }
 
 variable "audit_resource_group_name" {
@@ -31,24 +43,19 @@ variable "audit_resource_group_name" {
 
   validation {
     condition     = length(coalesce(var.audit_resource_group_name, "null")) <= 40
-    error_message = "`existing_audit_resource_group_name` must be 40 characters or less."
-  }
-}
-
-variable "existing_audit_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for audit resources, takes precedence over `audit_resource_group_name`."
-  default     = null
-
-  validation {
-    condition     = length(coalesce(var.existing_audit_resource_group_name, "null")) <= 40
     error_message = "`audit_resource_group_name` must be 40 characters or less."
   }
 }
 
+variable "use_existing_audit_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `audit_resource_group_name`."
+  default     = false
+}
+
 variable "observability_resource_group_name" {
   type        = string
-  description = "The name of the observability resource group to create. Required if `var.provision_atracker_cos` is true and `var.existing_observability_resource_group_name` is not provided."
+  description = "The name of the observability resource group to create."
   default     = "observability-rg"
 
   validation {
@@ -57,15 +64,10 @@ variable "observability_resource_group_name" {
   }
 }
 
-variable "existing_observability_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for observability resources, takes precedence over `observability_resource_group_name`. Required if `var.provision_atracker_cos` is true and `var.observability_resource_group_name` is not provided."
-  default     = null
-
-  validation {
-    condition     = length(coalesce(var.existing_observability_resource_group_name, "null")) <= 40
-    error_message = "`existing_observability_resource_group_name` must be 40 characters or less."
-  }
+variable "use_existing_observability_resource_group" {
+  type        = bool
+  description = "Set to `true`to use an existing resource group that has the name provided in `observability_resource_group_name`."
+  default     = false
 }
 
 variable "management_resource_group_name" {
@@ -79,15 +81,10 @@ variable "management_resource_group_name" {
   }
 }
 
-variable "existing_management_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for management resources, takes precedence over `management_resource_group_name`."
-  default     = null
-
-  validation {
-    condition     = length(coalesce(var.existing_management_resource_group_name, "null")) <= 40
-    error_message = "`existing_management_resource_group_name` must be 40 characters or less."
-  }
+variable "use_existing_management_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `management_resource_group_name`."
+  default     = false
 }
 
 variable "workload_resource_group_name" {
@@ -101,15 +98,10 @@ variable "workload_resource_group_name" {
   }
 }
 
-variable "existing_workload_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for workload resources, takes precedence over `workload_resource_group_name`."
-  default     = null
-
-  validation {
-    condition     = length(coalesce(var.existing_workload_resource_group_name, "null")) <= 40
-    error_message = "`existing_workload_resource_group_name` must be 40 characters or less."
-  }
+variable "use_existing_workload_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `workload_resource_group_name`."
+  default     = false
 }
 
 variable "edge_resource_group_name" {
@@ -123,15 +115,10 @@ variable "edge_resource_group_name" {
   }
 }
 
-variable "existing_edge_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for edge resources, takes precedence over `edge_resource_group_name`."
-  default     = null
-
-  validation {
-    condition     = length(coalesce(var.existing_edge_resource_group_name, "null")) <= 40
-    error_message = "`existing_edge_resource_group_name` must be 40 characters or less."
-  }
+variable "use_existing_edge_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `edge_resource_group_name`."
+  default     = false
 }
 
 variable "devops_resource_group_name" {
@@ -145,15 +132,10 @@ variable "devops_resource_group_name" {
   }
 }
 
-variable "existing_devops_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for devops resources, takes precedence over `devops_resource_group_name`."
-  default     = null
-
-  validation {
-    condition     = length(coalesce(var.existing_devops_resource_group_name, "null")) <= 40
-    error_message = "`existing_devops_resource_group_name` must be 40 characters or less."
-  }
+variable "use_existing_devops_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `devops_resource_group_name`."
+  default     = false
 }
 
 variable "skip_iam_account_settings" {
@@ -256,255 +238,6 @@ variable "user_mfa_reset" {
 }
 
 ########################################################################################################################
-# COS Variables
-########################################################################################################################
-
-variable "provision_atracker_cos" {
-  type        = bool
-  description = "Enable to create an Atracker route and COS instance + bucket."
-  default     = false
-}
-
-variable "region" {
-  type        = string
-  description = "Region to provision the COS resources created by this solution."
-  default     = "us-south"
-}
-
-variable "skip_cos_kms_auth_policy" {
-  type        = bool
-  description = "Whether to enable creating an IAM authoriation policy between the IBM Cloud Object Storage instance and the Key Management service instance of the CRN provided in `kms_key_crn`. This variable has no effect if `provision_atracker_cos` is false."
-  default     = false
-}
-
-variable "cos_plan" {
-  type        = string
-  description = "Plan of the COS instance created by the module"
-  default     = "standard"
-}
-
-variable "cos_instance_name" {
-  type        = string
-  description = "The name to give the cloud object storage instance that will be provisioned by this module, required if 'var.provision_atracker_cos' is true."
-  default     = null
-
-  validation {
-    condition     = var.cos_instance_name == null ? true : length(var.cos_instance_name) <= 180
-    error_message = "`cos_instance_name` must be 180 characters or less"
-  }
-
-  validation {
-    condition     = var.cos_instance_name == null ? true : length(regexall("^([^[:ascii:]]|[a-zA-Z0-9-._: ])+$", var.cos_instance_name)) > 0
-    error_message = "`cos_instance_name` must match the following regex pattern: \"^([^[:ascii:]]|[a-zA-Z0-9-._: ])+$\""
-  }
-}
-
-variable "resource_tags" {
-  type        = list(string)
-  description = "A list of tags applied to the COS resources created by the module."
-  default     = []
-}
-
-variable "cos_instance_access_tags" {
-  type        = list(string)
-  description = "A list of Access Tags applied to the created COS instance."
-  default     = []
-}
-
-variable "cos_bucket_name" {
-  type        = string
-  description = "The name to give the newly provisioned COS bucket which will be used for Activity Tracker logs, required if 'var.provision_atracker_cos' is true."
-  default     = null
-
-  validation {
-    condition     = var.cos_bucket_name == null ? true : (length(var.cos_bucket_name) >= 3)
-    error_message = "`cos_bucket_name` must be 3 or more characters long"
-  }
-
-  validation {
-    condition     = var.cos_bucket_name == null ? true : (length(var.cos_bucket_name) <= 63)
-    error_message = "`cos_bucket_name` must be 63 or less characters long"
-  }
-
-  validation {
-    condition     = var.cos_bucket_name == null ? true : length(regexall("^[a-z0-9][a-z0-9-]+[a-z0-9]$", var.cos_bucket_name)) > 0
-    error_message = "`cos_bucket_name` must match the following regex pattern: \"^[a-z0-9][a-z0-9]+[a-z0-9]$\""
-  }
-}
-
-variable "cos_bucket_access_tags" {
-  type        = list(string)
-  description = "A list of Access Tags applied to the created bucket."
-  default     = []
-}
-
-variable "cos_bucket_expire_enabled" {
-  type        = bool
-  description = "A flag to control expiry rule on the bucket."
-  default     = false
-}
-
-variable "cos_bucket_expire_days" {
-  type        = number
-  description = "Number of days before expiry."
-  default     = 365
-}
-
-variable "cos_bucket_object_versioning_enabled" {
-  type        = bool
-  description = "A flag to control object versioning on the bucket."
-  default     = false
-}
-
-variable "kms_key_crn" {
-  type        = string
-  description = "CRN of the KMS key to use to encrypt the data in the COS bucket, required if 'var.provision_atracker_cos' is true."
-  default     = null
-}
-
-variable "cos_bucket_management_endpoint_type" {
-  description = "The type of endpoint for the IBM terraform provider to use to manage the bucket. (public, private or direct)"
-  type        = string
-  default     = "public"
-  validation {
-    condition     = contains(["public", "private", "direct"], var.cos_bucket_management_endpoint_type)
-    error_message = "The specified management_endpoint_type_for_bucket is not a valid selection!"
-  }
-}
-
-variable "cos_bucket_storage_class" {
-  type        = string
-  description = "COS Bucket storage class type"
-  default     = "smart"
-}
-
-variable "cos_bucket_archive_enabled" {
-  type        = bool
-  description = "Set as true to enable archiving on the COS bucket."
-  default     = false
-}
-
-variable "cos_bucket_archive_days" {
-  type        = number
-  description = "Number of days to archive objects in the bucket."
-  default     = 20
-}
-
-variable "cos_bucket_archive_type" {
-  type        = string
-  description = "Type of archiving to use on bucket."
-  default     = "Glacier"
-}
-
-variable "cos_bucket_retention_enabled" {
-  type        = bool
-  description = "Retention enabled for COS bucket."
-  default     = false
-}
-
-variable "cos_bucket_retention_default" {
-  description = "Specifies default duration of time an object that can be kept unmodified for COS bucket."
-  type        = number
-  default     = 90
-}
-
-variable "cos_bucket_retention_maximum" {
-  description = "Specifies maximum duration of time an object that can be kept unmodified for COS bucket."
-  type        = number
-  default     = 350
-}
-
-variable "cos_bucket_retention_minimum" {
-  description = "Specifies minimum duration of time an object must be kept unmodified for COS bucket."
-  type        = number
-  default     = 90
-}
-
-variable "cos_bucket_retention_permanent" {
-  description = "Specifies a permanent retention status either enable or disable for COS bucket."
-  type        = bool
-  default     = false
-}
-
-variable "cos_bucket_cbr_rules" {
-  type = list(object({
-    description = string
-    account_id  = string
-    rule_contexts = list(object({
-      attributes = optional(list(object({
-        name  = string
-        value = string
-      })))
-    }))
-    enforcement_mode = string
-    tags = optional(list(object({
-      name  = string
-      value = string
-    })), [])
-    operations = optional(list(object({
-      api_types = list(object({
-        api_type_id = string
-      }))
-    })))
-  }))
-  description = "COS Bucket CBR Rules"
-  default     = []
-}
-
-variable "cos_instance_cbr_rules" {
-  type = list(object({
-    description = string
-    account_id  = string
-    rule_contexts = list(object({
-      attributes = optional(list(object({
-        name  = string
-        value = string
-      })))
-    }))
-    enforcement_mode = string
-    tags = optional(list(object({
-      name  = string
-      value = string
-    })), [])
-    operations = optional(list(object({
-      api_types = list(object({
-        api_type_id = string
-      }))
-    })))
-  }))
-  description = "CBR Rules for the COS instance."
-  default     = []
-}
-
-########################################################################################################################
-# ATracker Variables
-########################################################################################################################
-
-variable "skip_atracker_cos_iam_auth_policy" {
-  type        = bool
-  description = "Set to true to skip the creation of an IAM authorization policy that permits the Activity Tracker service Object Writer access to the Cloud Object Storage instance provisioned by this module. NOTE: If skipping, you must ensure the auth policy exists on the account before running the module."
-  default     = false
-}
-
-variable "cos_target_name" {
-  type        = string
-  description = "Name of the COS Target for Activity Tracker, required if 'var.provision_atracker_cos' is true."
-  default     = null
-}
-
-variable "activity_tracker_route_name" {
-  type        = string
-  description = "Name of the route for the Activity Tracker, required if 'var.provision_atracker_cos' is true."
-  default     = null
-}
-
-variable "activity_tracker_locations" {
-  type        = list(string)
-  description = "Location of the route for the Activity Tracker, logs from these locations will be sent to the specified target. Supports passing individual regions, as well as `global` and `*`."
-  default     = ["*", "global"]
-}
-
-########################################################################################################################
 # Trusted Profile Variables
 ########################################################################################################################
 
@@ -518,6 +251,11 @@ variable "trusted_profile_name" {
   type        = string
   description = "Name of the trusted profile, required if `provision_trusted_profile_projects` is true."
   default     = null
+
+  validation {
+    condition     = var.provision_trusted_profile_projects && var.trusted_profile_name != null
+    error_message = "`trusted_profile_name` is required if `provision_trusted_profile_projects` is true."
+  }
 }
 
 variable "trusted_profile_description" {
