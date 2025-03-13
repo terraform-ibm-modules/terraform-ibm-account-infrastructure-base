@@ -410,7 +410,7 @@
             },
             {
               "key": "skip_iam_account_settings",
-              "value": true,
+              "default_value": true,
               "hidden": true
             },
             {
@@ -537,7 +537,7 @@
             },
             {
               "key": "provision_trusted_profile_projects",
-              "value": false,
+              "default_value": false,
               "hidden": true
             },
             {
@@ -565,7 +565,7 @@
             },
             {
               "key":"provision_cbr",
-              "value": false,
+              "default_value": false,
               "hidden": true
             },
             {
