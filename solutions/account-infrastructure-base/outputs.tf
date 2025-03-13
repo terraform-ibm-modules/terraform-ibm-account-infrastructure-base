@@ -2,6 +2,16 @@
 # Outputs
 ########################################################################################################################
 
+output "global_resource_group_id" {
+  value       = module.account_infrastructure_base.global_resource_group_id
+  description = "ID of the Resource Group created by the module."
+}
+
+output "global_resource_group_name" {
+  value       = module.account_infrastructure_base.global_resource_group_name
+  description = "Name of the Resource Group created by the module."
+}
+
 output "security_resource_group_id" {
   value       = module.account_infrastructure_base.security_resource_group_id
   description = "ID of the Resource Group created by the module."

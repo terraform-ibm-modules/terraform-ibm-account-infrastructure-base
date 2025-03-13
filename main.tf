@@ -5,6 +5,7 @@
 locals {
   # resource group logic
   rg_vars = {
+    global_resource_group        = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : null,
     security_resource_group      = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_security_resource_group ? var.security_resource_group_name : null,
     audit_resource_group         = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_audit_resource_group ? var.audit_resource_group_name : null,
     observability_resource_group = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_observability_resource_group ? var.observability_resource_group_name : null,
@@ -21,6 +22,7 @@ locals {
 
   #existing resource group logic
   existing_rg_vars = {
+    existing_global_resource_group        = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : null,
     existing_security_resource_group      = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_security_resource_group ? var.security_resource_group_name : null,
     existing_audit_resource_group         = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_audit_resource_group ? var.audit_resource_group_name : null,
     existing_observability_resource_group = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_observability_resource_group ? var.observability_resource_group_name : null,
@@ -37,6 +39,16 @@ locals {
   }
 
   # resource group outputs
+  global_resource_group = local.existing_rg_vars["existing_global_resource_group"] != null ? {
+    id   = module.existing_resource_group[local.existing_rg_vars["existing_global_resource_group"]].resource_group_id
+    name = module.existing_resource_group[local.existing_rg_vars["existing_global_resource_group"]].resource_group_name
+    } : local.rg_vars["global_resource_group"] != null ? {
+    id   = module.resource_group[local.rg_vars["global_resource_group"]].resource_group_id
+    name = module.resource_group[local.rg_vars["global_resource_group"]].resource_group_name
+    } : {
+    id   = null
+    name = null
+  }
   security_resource_group = local.existing_rg_vars["existing_security_resource_group"] != null ? {
     id   = module.existing_resource_group[local.existing_rg_vars["existing_security_resource_group"]].resource_group_id
     name = module.existing_resource_group[local.existing_rg_vars["existing_security_resource_group"]].resource_group_name

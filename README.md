@@ -185,6 +185,8 @@ No resources.
 | <a name="output_devops_resource_group_name"></a> [devops\_resource\_group\_name](#output\_devops\_resource\_group\_name) | Name of the Resource Group created by the module. |
 | <a name="output_edge_resource_group_id"></a> [edge\_resource\_group\_id](#output\_edge\_resource\_group\_id) | ID of the Resource Group created by the module. |
 | <a name="output_edge_resource_group_name"></a> [edge\_resource\_group\_name](#output\_edge\_resource\_group\_name) | Name of the Resource Group created by the module. |
+| <a name="output_global_resource_group_id"></a> [global\_resource\_group\_id](#output\_global\_resource\_group\_id) | ID of the Resource Group created by the module. |
+| <a name="output_global_resource_group_name"></a> [global\_resource\_group\_name](#output\_global\_resource\_group\_name) | Name of the Resource Group created by the module. |
 | <a name="output_management_resource_group_id"></a> [management\_resource\_group\_id](#output\_management\_resource\_group\_id) | ID of the Resource Group created by the module. |
 | <a name="output_management_resource_group_name"></a> [management\_resource\_group\_name](#output\_management\_resource\_group\_name) | Name of the Resource Group created by the module. |
 | <a name="output_observability_resource_group_id"></a> [observability\_resource\_group\_id](#output\_observability\_resource\_group\_id) | ID of the Resource Group created by the module. |

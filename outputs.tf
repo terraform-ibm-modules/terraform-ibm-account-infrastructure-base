@@ -2,6 +2,16 @@
 # Outputs
 ########################################################################################################################
 
+output "global_resource_group_id" {
+  value       = local.global_resource_group.id
+  description = "ID of the Resource Group created by the module."
+}
+
+output "global_resource_group_name" {
+  value       = local.global_resource_group.name
+  description = "Name of the Resource Group created by the module."
+}
+
 output "security_resource_group_id" {
   value       = local.security_resource_group.id
   description = "ID of the Resource Group created by the module."

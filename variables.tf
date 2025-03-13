@@ -253,7 +253,7 @@ variable "trusted_profile_name" {
   default     = null
 
   validation {
-    condition     = var.provision_trusted_profile_projects && var.trusted_profile_name != null
+    condition     = !var.provision_trusted_profile_projects || var.trusted_profile_name != null
     error_message = "`trusted_profile_name` is required if `provision_trusted_profile_projects` is true."
   }
 }
