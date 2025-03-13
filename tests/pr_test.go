@@ -62,3 +62,32 @@ func TestRunUpgradeDA(t *testing.T) {
 		assert.NoError(t, err, "Schematic Upgrade Test had an unexpected error")
 	}
 }
+
+func TestRunRGOnlyDA(t *testing.T) {
+	t.Parallel()
+
+	options := testschematic.TestSchematicOptionsDefault(&testschematic.TestSchematicOptions{
+		Testing:                t,
+		TarIncludePatterns:     []string{"*.tf", fmt.Sprintf("%s/*.tf", solutionDir)},
+		TemplateFolder:         solutionDir,
+		Prefix:                 "rgonly",
+		Region:                 "us-east",
+		Tags:                   []string{"test-schematic"},
+		DeleteWorkspaceOnFail:  false,
+		WaitJobCompleteMinutes: 30,
+	})
+
+	// Set options to the same defaults set for the resource group only flavor
+	// see ibm_catalog.json
+	options.TerraformVars = []testschematic.TestSchematicTerraformVar{
+		{Name: "ibmcloud_api_key", Value: options.RequiredEnvironmentVars["TF_VAR_ibmcloud_api_key"], DataType: "string", Secure: true},
+		{Name: "prefix", Value: options.Prefix, DataType: "string"},
+		{Name: "provision_cbr", Value: false, DataType: "string"},
+		{Name: "skip_iam_account_settings", Value: true, DataType: "string"},
+		{Name: "provision_trusted_profile_projects", Value: false, DataType: "string"},
+		{Name: "global_resource_group_name", Value: "global", DataType: "string"},
+	}
+
+	err := options.RunSchematicTest()
+	assert.NoError(t, err, "Schematic Resource Group Only Test had an unexpected error")
+}
