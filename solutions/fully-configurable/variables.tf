@@ -22,7 +22,7 @@ variable "provider_visibility" {
 variable "prefix" {
   type        = string
   description = "The prefix to add to all resources that this solution creates. To not use any prefix value, you can set this value to `null` or an empty string."
-  default     = "dev"
+  nullable    = true
 
   # prefix restriction due to limitations when using multiple DAs in stacks
   # this value was determined based on the lowest prefix restriction located here:
@@ -46,7 +46,7 @@ variable "allowed_ip_addresses" {
 
 variable "global_resource_group_name" {
   type        = string
-  description = "The name of the global resource group to create, takes precedence over all other resource group name variables. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<global_resource_group_name>`."
+  description = "The name of the global resource group to create, when this variable is provided only one resource group will be created and all other resource group name variables will be ignored. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<global_resource_group_name>`."
   default     = null
 }
 

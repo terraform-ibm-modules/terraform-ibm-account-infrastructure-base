@@ -61,8 +61,6 @@ module "account_configuration" {
 }
 ```
 
-#### Before You Begin
-
 ### Required IAM access policies
 
 <!-- PERMISSIONS REQUIRED TO RUN MODULE
@@ -130,7 +128,7 @@ No resources.
 | <a name="input_devops_resource_group_name"></a> [devops\_resource\_group\_name](#input\_devops\_resource\_group\_name) | The name of the devops resource group to create. | `string` | `"devops-tools-rg"` | no |
 | <a name="input_edge_resource_group_name"></a> [edge\_resource\_group\_name](#input\_edge\_resource\_group\_name) | The name of the edge resource group to create. | `string` | `"edge-rg"` | no |
 | <a name="input_enforce_allowed_ip_addresses"></a> [enforce\_allowed\_ip\_addresses](#input\_enforce\_allowed\_ip\_addresses) | Whether the IP address restriction is enforced. Set the value to `false` to test the impact of the restriction on your account, once the impact of the restriction has been observed set the value to `true`. | `bool` | `true` | no |
-| <a name="input_global_resource_group_name"></a> [global\_resource\_group\_name](#input\_global\_resource\_group\_name) | The name of the global resource group to create, takes precedence over all other resource group name variables. | `string` | `null` | no |
+| <a name="input_global_resource_group_name"></a> [global\_resource\_group\_name](#input\_global\_resource\_group\_name) | The name of the global resource group to create, when this variable is provided only one resource group will be created and all other resource group name variables will be ignored. | `string` | `null` | no |
 | <a name="input_inactive_session_timeout"></a> [inactive\_session\_timeout](#input\_inactive\_session\_timeout) | Specify how long (seconds) a user is allowed to stay logged in the account while being inactive/idle, has no effect when `skip_iam_account_settings` is true. | `string` | `"7200"` | no |
 | <a name="input_management_resource_group_name"></a> [management\_resource\_group\_name](#input\_management\_resource\_group\_name) | The name of the management resource group to create. | `string` | `"management-plane-rg"` | no |
 | <a name="input_max_sessions_per_identity"></a> [max\_sessions\_per\_identity](#input\_max\_sessions\_per\_identity) | Defines the maximum allowed sessions per identity required by the account. Supports any whole number greater than '0', or 'NOT\_SET' to unset account setting and use service default, has no effect when `skip_iam_account_settings` is true. | `string` | `"NOT_SET"` | no |
