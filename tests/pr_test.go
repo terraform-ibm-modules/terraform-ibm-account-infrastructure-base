@@ -9,7 +9,7 @@ import (
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/testschematic"
 )
 
-const solutionDir = "solutions/account-infrastructure-base"
+const solutionDir = "solutions/fully-configurable"
 
 func setupOptions(t *testing.T, prefix string, dir string) *testschematic.TestSchematicOptions {
 	options := testschematic.TestSchematicOptionsDefault(&testschematic.TestSchematicOptions{
