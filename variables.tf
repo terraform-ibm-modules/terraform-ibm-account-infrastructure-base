@@ -4,7 +4,7 @@
 
 variable "global_resource_group_name" {
   type        = string
-  description = "The name of the global resource group to create, when this variable is provided only one resource group will be created and all other resource group name variables will be ignored."
+  description = "The name of the global resource group to create. When this variable is provided only one resource group will be created and all other resource group name variables will be ignored."
   default     = null
 
   validation {
