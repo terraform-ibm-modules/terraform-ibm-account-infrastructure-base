@@ -19,17 +19,10 @@ variable "provider_visibility" {
   }
 }
 
-variable "region" {
-  type        = string
-  description = "The region to provision the Object Storage resources created by this solution. Only required if `provision_activity_tracker_cos` is true."
-  default     = "us-south"
-  nullable    = false
-}
-
 variable "prefix" {
   type        = string
-  description = "The prefix to add to all resources that this solution creates. If `provision_activity_tracker_cos` is true, this value will be converted to lowercase in all instances. To not use any prefix value, you can set this value to `null` or an empty string."
-  default     = "dev"
+  description = "The prefix to add to all resources that this solution creates. To not use any prefix value, you can set this value to `null` or an empty string."
+  nullable    = true
 
   # prefix restriction due to limitations when using multiple DAs in stacks
   # this value was determined based on the lowest prefix restriction located here:
@@ -45,37 +38,21 @@ variable "prefix" {
   }
 }
 
-variable "kms_key_crn" {
-  type        = string
-  description = "The CRN of the key management service key to encrypt the Object Storage bucket. Required if `provision_activity_tracker_cos` is true."
-  default     = null
-}
-
-variable "cos_bucket_management_endpoint_type" {
-  description = "The type of endpoint for the IBM terraform provider to use to manage the bucket. (public, private or direct)"
-  type        = string
-  default     = "public"
-  validation {
-    condition     = contains(["public", "private", "direct"], var.cos_bucket_management_endpoint_type)
-    error_message = "The specified management_endpoint_type_for_bucket is not a valid selection."
-  }
-}
-
 variable "allowed_ip_addresses" {
   description = " A list of the IP addresses and subnets from which IAM tokens can be created for the account."
   type        = list(string)
   default     = []
 }
 
-variable "provision_activity_tracker_cos" {
-  type        = bool
-  description = "Whether to enable creating an Activity Tracker route, Object Storage instance, and bucket."
-  default     = false
+variable "global_resource_group_name" {
+  type        = string
+  description = "The name of the global resource group to create, when this variable is provided only one resource group will be created and all other resource group name variables will be ignored. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<global_resource_group_name>`."
+  default     = null
 }
 
-variable "skip_cos_kms_iam_auth_policy" {
+variable "use_existing_global_resource_group" {
   type        = bool
-  description = "Whether to enable creating an IAM authoriation policy between the IBM Cloud Object Storage instance and the Key Management service instance of the CRN provided in `var.kms_key_crn`. This variable has no effect if `var.provision_activity_tracker_cos` is false."
+  description = "Set to `true` to use an existing resource group that has the name provided in `global_resource_group_name`."
   default     = false
 }
 
@@ -85,10 +62,10 @@ variable "security_resource_group_name" {
   default     = "security-rg"
 }
 
-variable "existing_security_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for security resources, takes precedence over `security_resource_group_name`."
-  default     = null
+variable "use_existing_security_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `security_resource_group_name`."
+  default     = false
 }
 
 variable "audit_resource_group_name" {
@@ -97,10 +74,10 @@ variable "audit_resource_group_name" {
   default     = "audit-rg"
 }
 
-variable "existing_audit_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for audit resources, takes precedence over `audit_resource_group_name`."
-  default     = null
+variable "use_existing_audit_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `audit_resource_group_name`."
+  default     = false
 }
 
 variable "observability_resource_group_name" {
@@ -109,10 +86,10 @@ variable "observability_resource_group_name" {
   default     = "observability-rg"
 }
 
-variable "existing_observability_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for observability resources, takes precedence over `observability_resource_group_name`."
-  default     = null
+variable "use_existing_observability_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `observability_resource_group_name`."
+  default     = false
 }
 
 variable "management_resource_group_name" {
@@ -121,10 +98,10 @@ variable "management_resource_group_name" {
   default     = "management-plane-rg"
 }
 
-variable "existing_management_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for management resources, takes precedence over `management_resource_group_name`."
-  default     = null
+variable "use_existing_management_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `management_resource_group_name`."
+  default     = false
 }
 
 variable "workload_resource_group_name" {
@@ -133,10 +110,10 @@ variable "workload_resource_group_name" {
   default     = "workload-rg"
 }
 
-variable "existing_workload_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for workload resources, takes precedence over `workload_resource_group_name`."
-  default     = null
+variable "use_existing_workload_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `workload_resource_group_name`."
+  default     = false
 }
 
 variable "edge_resource_group_name" {
@@ -145,10 +122,10 @@ variable "edge_resource_group_name" {
   default     = "edge-rg"
 }
 
-variable "existing_edge_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for edge resources, takes precedence over `edge_resource_group_name`."
-  default     = null
+variable "use_existing_edge_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `edge_resource_group_name`."
+  default     = false
 }
 
 variable "devops_resource_group_name" {
@@ -157,10 +134,10 @@ variable "devops_resource_group_name" {
   default     = "devops-tools-rg"
 }
 
-variable "existing_devops_resource_group_name" {
-  type        = string
-  description = "The name of the existing resource group to use for devops resources."
-  default     = null
+variable "use_existing_devops_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `devops_resource_group_name`."
+  default     = false
 }
 
 variable "skip_iam_account_settings" {
@@ -254,140 +231,6 @@ variable "user_mfa_reset" {
   type        = bool
   description = "Whether to delete all user MFA settings configured in the targeted account. Set to true to ignore entries declared in variable `user_mfa`."
   default     = false
-}
-
-
-variable "cos_instance_name" {
-  type        = string
-  description = "The name for the Object Storage instance that this module provisions. Required if the variable `provision_activity_tracker_cos` is true."
-  default     = null
-}
-
-variable "cos_plan" {
-  type        = string
-  description = "The pricing plan of the Object Storage instance created by the module."
-  default     = "standard"
-}
-
-variable "cos_instance_tags" {
-  type        = list(string)
-  description = "An optional list of tags to be added to the Object Storage resources created by this solution. Required only if `provision_activity_tracker_cos` is true."
-  default     = []
-}
-
-variable "cos_instance_access_tags" {
-  type        = list(string)
-  description = "A list of access tags applied to the Object Storage instance that this module provisions."
-  default     = []
-}
-
-variable "cos_bucket_name" {
-  type        = string
-  description = "The name for the Object Storage bucket that stores Activity Tracker logs. Required if variable `provision_activity_tracker_cos` is true."
-  default     = null
-}
-
-variable "cos_bucket_access_tags" {
-  type        = list(string)
-  description = "A list of access tags applied to the Object Storage bucket that this module provisions."
-  default     = []
-}
-
-
-variable "enable_bucket_expiry" {
-  type        = bool
-  description = "Whether to enable the expiration rule on the Objects stored in bucket. Specify the number of days in the variable `cos_bucket_expire_days`."
-  default     = false
-}
-
-variable "cos_bucket_expire_days" {
-  type        = number
-  description = "The number of days before objects in a Object Storage bucket are automatically deleted."
-  default     = 365
-}
-
-variable "enable_cos_bucket_object_versioning" {
-  type        = bool
-  description = "Whether to enable versioning on the bucket."
-  default     = false
-}
-
-variable "cos_bucket_storage_class" {
-  type        = string
-  description = "The Object Storage bucket storage class type."
-  default     = "smart"
-}
-
-variable "enable_cos_bucket_archival" {
-  type        = bool
-  description = "Whether to enable archival on the Objects in Storage bucket."
-  default     = false
-}
-
-variable "cos_bucket_archive_days" {
-  type        = number
-  description = "The number of days before objects in the bucket are archived."
-  default     = 20
-}
-
-variable "cos_bucket_archive_type" {
-  type        = string
-  description = "The type of archiving to use on the bucket."
-  default     = "Glacier"
-}
-
-variable "enable_cos_bucket_retention" {
-  type        = bool
-  description = "Whether to enable retention for the Object Storage bucket."
-  default     = false
-}
-
-variable "cos_bucket_default_retention_days" {
-  description = "The default duration of time in days that an object can be kept unmodified in an Object Storage bucket."
-  type        = number
-  default     = 90
-}
-
-variable "cos_bucket_maximum_retention_days" {
-  description = "The maximum duration of time in days that an object can be kept unmodified in an Object Storage bucket."
-  type        = number
-  default     = 350
-}
-
-variable "cos_bucket_minimum_retention_days" {
-  description = "The minimum duration of time in days that an object must be kept unmodified for Object Storage bucket."
-  type        = number
-  default     = 90
-}
-
-variable "enable_cos_bucket_permanent_retention" {
-  description = "Whether to enable a permanent retention status for the Object Storage bucket."
-  type        = bool
-  default     = false
-}
-
-variable "skip_activity_tracker_cos_iam_auth_policy" {
-  type        = bool
-  description = "Whether to skip creating an IAM authorization policy that grants the Activity Tracker service Object Writer access to the Object Storage instance that is provisioned by this module. If set to true, you must ensure the authorization policy exists on the account before running the module."
-  default     = false
-}
-
-variable "cos_target_name" {
-  type        = string
-  description = "The name of the Object Storage target for Activity Tracker. Required if variable `provision_activity_tracker_cos` is true."
-  default     = null
-}
-
-variable "activity_tracker_route_name" {
-  type        = string
-  description = "The name of the route for Activity Tracker. Required if variable `provision_activity_tracker_cos` is true."
-  default     = null
-}
-
-variable "activity_tracker_locations" {
-  type        = list(string)
-  description = "The location of the route for Activity Tracker. Logs from these locations are sent to the specified target. Supports passing individual regions, `global`, and `*`."
-  default     = ["*", "global"]
 }
 
 variable "provision_trusted_profile_projects" {

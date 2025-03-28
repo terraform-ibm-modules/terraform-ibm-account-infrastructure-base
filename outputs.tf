@@ -2,6 +2,16 @@
 # Outputs
 ########################################################################################################################
 
+output "global_resource_group_id" {
+  value       = local.global_resource_group.id
+  description = "ID of the Resource Group created by the module."
+}
+
+output "global_resource_group_name" {
+  value       = local.global_resource_group.name
+  description = "Name of the Resource Group created by the module."
+}
+
 output "security_resource_group_id" {
   value       = local.security_resource_group.id
   description = "ID of the Resource Group created by the module."
@@ -70,31 +80,6 @@ output "devops_resource_group_id" {
 output "devops_resource_group_name" {
   value       = local.devops_resource_group.name
   description = "Name of the Resource Group created by the module."
-}
-
-output "activity_tracker_routes" {
-  value       = local.activity_tracker_routes
-  description = "Activity Tracker Routes"
-}
-
-output "activity_tracker_targets" {
-  value       = local.activity_tracker_targets
-  description = "Activity Tracker Targets"
-}
-
-output "cos_bucket" {
-  value       = local.cos_bucket
-  description = "COS Bucket"
-}
-
-output "cos_instance_guid" {
-  value       = local.cos_instance_guid
-  description = "COS Instance GUID"
-}
-
-output "cos_instance_id" {
-  value       = local.cos_instance_id
-  description = "COS Instance ID"
 }
 
 output "account_allowed_ip_addresses" {
