@@ -281,7 +281,21 @@
               "key": "use_existing_workload_resource_group"
             },
             {
-              "key":"cbr_enforcement_mode"
+              "key":"cbr_enforcement_mode",
+              "options": [
+                {
+                  "displayname": "Enabled",
+                  "value": "enabled"
+                },
+                {
+                  "displayname": "Disabled",
+                  "value": "disabled"
+                },
+                {
+                  "displayname": "Report",
+                  "value": "report"
+                }
+              ]
             },
             {
               "key":"provision_cbr"
