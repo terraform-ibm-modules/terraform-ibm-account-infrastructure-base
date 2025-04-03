@@ -83,8 +83,7 @@
             },
             {
               "key": "prefix",
-              "required": true,
-              "description":"Prefix to add to all resources created by this solution. If `provision_activity_tracker_cos` is true, this value will be converted to lowercase in all instances. To not use any prefix value, you can enter the string `__NULL__`."
+              "required": true
             },
             {
               "key": "provider_visibility",
@@ -344,8 +343,7 @@
             },
             {
               "key": "prefix",
-              "required": true,
-              "description":"Prefix to add to all resources created by this solution. If `provision_activity_tracker_cos` is true, this value will be converted to lowercase in all instances. To not use any prefix value, you can enter the string `__NULL__`."
+              "required": true
             },
             {
               "key": "provider_visibility",
