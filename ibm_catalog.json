@@ -313,7 +313,7 @@
           ]
         },
         {
-          "label": "Resource group only",
+          "label": "Resource groups only",
           "name": "resource-group-only",
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
