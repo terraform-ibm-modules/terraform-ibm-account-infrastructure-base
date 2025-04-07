@@ -284,6 +284,9 @@
               "key": "use_existing_workload_resource_group"
             },
             {
+              "key":"provision_cbr"
+            },
+            {
               "key":"cbr_enforcement_mode",
               "options": [
                 {
@@ -299,9 +302,6 @@
                   "value": "report"
                 }
               ]
-            },
-            {
-              "key":"provision_cbr"
             },
             {
               "key": "cbr_kms_service_targeted_by_prewired_rules",
