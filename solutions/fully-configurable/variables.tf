@@ -259,13 +259,13 @@ variable "trusted_profile_roles" {
 
 variable "provision_cbr" {
   type        = bool
-  description = "Whether to enable the creation of context-based restriction rules and zones in the solution. Default is false."
+  description = "Whether to enable the creation of context-based restriction rules and zones in the solution. Default is false. [Learn more](https://github.com/terraform-ibm-modules/terraform-ibm-cbr/blob/main/modules/fscloud/README.md)."
   default     = false
 }
 
 variable "cbr_enforcement_mode" {
   type        = string
-  description = "Enforcement mode of the CBR rules, valid values are `enabled`, `disabled`, or `report`. Default is report."
+  description = "Enforcement mode of the CBR rules. Valid values are `enabled`, `disabled`, or `report`. When set to `enabled`, traffic will be restricted according to [defined rules](https://github.com/terraform-ibm-modules/terraform-ibm-cbr/tree/main/modules/fscloud), allowing only permitted connections while blocking all others. `report` mode monitors CBR rules and logged in activity tracker without blocking traffic which is useful for testing. Default is report. [Learn more](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-whatis#rule-enforcement)."
   default     = "report"
 }
 
