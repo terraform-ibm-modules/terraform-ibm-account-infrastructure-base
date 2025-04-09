@@ -4,11 +4,11 @@
 
 locals {
   target_service_details = {
-    "IAM" = {
+    "apprapp" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
-    "apprapp" = {
+    "atracker" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
@@ -28,10 +28,6 @@ locals {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
-    "containers-kubernetes" = {
-      enforcement_mode = var.cbr_enforcement_mode == "report" ? "disabled" : var.cbr_enforcement_mode
-      global_deny      = false
-    }
     "containers-kubernetes-cluster" = {
       enforcement_mode = var.cbr_enforcement_mode == "report" ? "disabled" : var.cbr_enforcement_mode
       global_deny      = false
@@ -40,10 +36,10 @@ locals {
       enforcement_mode = var.cbr_enforcement_mode == "report" ? "disabled" : var.cbr_enforcement_mode
       global_deny      = false
     }
-    "databases-for-cassandra" = {
-      enforcement_mode = var.cbr_enforcement_mode == "report" ? "disabled" : var.cbr_enforcement_mode
-      global_deny      = false
-    }
+    "context-based-restrictions" = {
+      enforcement_mode : var.cbr_enforcement_mode
+      global_deny = false
+    },
     "databases-for-elasticsearch" = {
       enforcement_mode = var.cbr_enforcement_mode == "report" ? "disabled" : var.cbr_enforcement_mode
       global_deny      = false
@@ -84,11 +80,19 @@ locals {
       enforcement_mode = var.cbr_enforcement_mode == "report" ? "disabled" : var.cbr_enforcement_mode
       global_deny      = false
     }
+    "ghost-tags" = {
+      enforcement_mode = var.cbr_enforcement_mode
+      global_deny      = false
+    }
     "globalcatalog-collection" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
     "hs-crypto" = {
+      enforcement_mode = var.cbr_enforcement_mode
+      global_deny      = false
+    }
+    "IAM" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
@@ -112,11 +116,7 @@ locals {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
-    "logdna" = {
-      enforcement_mode = var.cbr_enforcement_mode
-      global_deny      = false
-    }
-    "logdnaat" = {
+    "logs" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
@@ -149,10 +149,6 @@ locals {
       global_deny      = false
     }
     "user-management" = {
-      enforcement_mode = var.cbr_enforcement_mode
-      global_deny      = false
-    }
-    "logs" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
