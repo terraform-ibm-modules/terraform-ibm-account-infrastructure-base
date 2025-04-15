@@ -20,12 +20,24 @@ locals {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
+    "codeengine-platform" = {
+      enforcement_mode = var.cbr_enforcement_mode
+      global_deny      = false
+    }
+    "codeengine-service-control-plane" = {
+      enforcement_mode = var.cbr_enforcement_mode
+      global_deny      = false
+    }
     "compliance" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
     "container-registry" = {
       enforcement_mode = var.cbr_enforcement_mode
+      global_deny      = false
+    }
+    "containers-kubernetes" = {
+      enforcement_mode = var.cbr_enforcement_mode == "report" ? "disabled" : var.cbr_enforcement_mode
       global_deny      = false
     }
     "containers-kubernetes-cluster" = {
