@@ -176,3 +176,8 @@ output "cbr_map_target_service_rule_ids" {
   value       = one(module.cbr_fscloud[*].map_target_service_rule_ids)
   description = "Map of target service and rule ids"
 }
+
+output "cbr_map_vpc_zoneid" {
+  value       = one(module.cbr_fscloud[*].map_vpc_zoneid)
+  description = "Map of VPC and zone id"
+}

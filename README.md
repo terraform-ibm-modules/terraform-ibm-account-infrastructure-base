@@ -179,6 +179,7 @@ No resources.
 | <a name="output_audit_resource_group_name"></a> [audit\_resource\_group\_name](#output\_audit\_resource\_group\_name) | Name of the Resource Group created by the module. |
 | <a name="output_cbr_map_service_ref_name_zoneid"></a> [cbr\_map\_service\_ref\_name\_zoneid](#output\_cbr\_map\_service\_ref\_name\_zoneid) | Map of service reference and zone ids |
 | <a name="output_cbr_map_target_service_rule_ids"></a> [cbr\_map\_target\_service\_rule\_ids](#output\_cbr\_map\_target\_service\_rule\_ids) | Map of target service and rule ids |
+| <a name="output_cbr_map_vpc_zoneid"></a> [cbr\_map\_vpc\_zoneid](#output\_cbr\_map\_vpc\_zoneid) | Map of VPC and zone id |
 | <a name="output_devops_resource_group_id"></a> [devops\_resource\_group\_id](#output\_devops\_resource\_group\_id) | ID of the Resource Group created by the module. |
 | <a name="output_devops_resource_group_name"></a> [devops\_resource\_group\_name](#output\_devops\_resource\_group\_name) | Name of the Resource Group created by the module. |
 | <a name="output_edge_resource_group_id"></a> [edge\_resource\_group\_id](#output\_edge\_resource\_group\_id) | ID of the Resource Group created by the module. |
