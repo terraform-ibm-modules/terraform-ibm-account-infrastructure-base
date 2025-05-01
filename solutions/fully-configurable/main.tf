@@ -171,8 +171,8 @@ module "account_infrastructure_base" {
   source = "../.."
 
   # resource groups
-  global_resource_group_name                = try("${var.prefix}-${var.global_resource_group_name}", var.global_resource_group_name, null)
-  use_existing_global_resource_group        = var.use_existing_global_resource_group
+  single_resource_group_name                = try("${var.prefix}-${var.single_resource_group_name}", var.single_resource_group_name, null)
+  use_existing_single_resource_group        = var.use_existing_single_resource_group
   audit_resource_group_name                 = try("${var.prefix}-${var.audit_resource_group_name}", var.audit_resource_group_name, null)
   use_existing_audit_resource_group         = var.use_existing_audit_resource_group
   devops_resource_group_name                = try("${var.prefix}-${var.devops_resource_group_name}", var.devops_resource_group_name, null)

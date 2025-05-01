@@ -44,16 +44,16 @@ variable "allowed_ip_addresses" {
   default     = []
 }
 
-variable "global_resource_group_name" {
+variable "single_resource_group_name" {
   type        = string
-  description = "The name of the global resource group to create, when this variable is provided only one resource group will be created and all other resource group name variables will be ignored. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<global_resource_group_name>`."
-  default     = null
+  description = "Use a single resource group for all infrastructure, when this variable is provided only one resource group will be created and all other resource group name variables will be ignored. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<single_resource_group_name>`."
+  default     = "Default"
 }
 
-variable "use_existing_global_resource_group" {
+variable "use_existing_single_resource_group" {
   type        = bool
-  description = "Set to `true` to use an existing resource group that has the name provided in `global_resource_group_name`."
-  default     = false
+  description = "Set to `true` to use an existing resource group that has the name provided in `single_resource_group_name`."
+  default     = true
 }
 
 variable "security_resource_group_name" {

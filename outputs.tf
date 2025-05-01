@@ -2,84 +2,84 @@
 # Outputs
 ########################################################################################################################
 
-output "global_resource_group_id" {
-  value       = local.global_resource_group.id
-  description = "ID of the Resource Group created by the module."
+output "single_resource_group_id" {
+  value       = local.single_resource_group.id
+  description = "ID of the single Resource Group created by the module."
 }
 
-output "global_resource_group_name" {
-  value       = local.global_resource_group.name
-  description = "Name of the Resource Group created by the module."
+output "single_resource_group_name" {
+  value       = local.single_resource_group.name
+  description = "Name of the single Resource Group created by the module."
 }
 
 output "security_resource_group_id" {
   value       = local.security_resource_group.id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for security-related resources."
 }
 
 output "security_resource_group_name" {
   value       = local.security_resource_group.name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for security-related resources."
 }
 
 output "audit_resource_group_id" {
   value       = local.audit_resource_group.id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for audit-related resources."
 }
 
 output "audit_resource_group_name" {
   value       = local.audit_resource_group.name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for audit-related resources."
 }
 
 output "observability_resource_group_id" {
   value       = local.observability_resource_group.id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created observability-related resources."
 }
 
 output "observability_resource_group_name" {
   value       = local.observability_resource_group.name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created observability-related resources."
 }
 
 output "management_resource_group_id" {
   value       = local.management_resource_group.id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created management-related resources."
 }
 
 output "management_resource_group_name" {
   value       = local.management_resource_group.name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created management-related resources."
 }
 
 output "workload_resource_group_id" {
   value       = local.workload_resource_group.id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created workload-related resources."
 }
 
 output "workload_resource_group_name" {
   value       = local.workload_resource_group.name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created workload-related resources."
 }
 
 output "edge_resource_group_id" {
   value       = local.edge_resource_group.id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created edge network-related resources."
 }
 
 output "edge_resource_group_name" {
   value       = local.edge_resource_group.name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created edge network-related resources."
 }
 
 output "devops_resource_group_id" {
   value       = local.devops_resource_group.id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created devops-related resources."
 }
 
 output "devops_resource_group_name" {
   value       = local.devops_resource_group.name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created devops-related resources."
 }
 
 output "account_allowed_ip_addresses" {

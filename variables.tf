@@ -2,20 +2,20 @@
 # Account Variables
 ########################################################################################################################
 
-variable "global_resource_group_name" {
+variable "single_resource_group_name" {
   type        = string
-  description = "The name of the global resource group to create. When this variable is provided only one resource group will be created and all other resource group name variables will be ignored."
+  description = "The name of the single resource group to create. When this variable is provided only one resource group will be created and all other resource group name variables will be ignored."
   default     = null
 
   validation {
-    condition     = length(coalesce(var.global_resource_group_name, "null")) <= 40
-    error_message = "`global_resource_group_name` must be 40 characters or less."
+    condition     = length(coalesce(var.single_resource_group_name, "null")) <= 40
+    error_message = "`single_resource_group_name` must be 40 characters or less."
   }
 }
 
-variable "use_existing_global_resource_group" {
+variable "use_existing_single_resource_group" {
   type        = bool
-  description = "Set to `true` to use an existing resource group that has the name provided in `global_resource_group_name`."
+  description = "Set to `true` to use an existing resource group that has the name provided in `single_resource_group_name`."
   default     = false
 }
 
