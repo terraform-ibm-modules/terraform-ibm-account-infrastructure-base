@@ -171,21 +171,21 @@ module "account_infrastructure_base" {
   source = "../.."
 
   # resource groups
-  global_resource_group_name                = try("${var.prefix}-${var.global_resource_group_name}", var.global_resource_group_name, null)
-  use_existing_global_resource_group        = var.use_existing_global_resource_group
-  audit_resource_group_name                 = try("${var.prefix}-${var.audit_resource_group_name}", var.audit_resource_group_name, null)
+  single_resource_group_name                = var.use_existing_single_resource_group ? var.single_resource_group_name : try("${var.prefix}-${var.single_resource_group_name}", var.single_resource_group_name, null)
+  use_existing_single_resource_group        = var.use_existing_single_resource_group
+  audit_resource_group_name                 = var.use_existing_audit_resource_group ? var.audit_resource_group_name : try("${var.prefix}-${var.audit_resource_group_name}", var.audit_resource_group_name, null)
   use_existing_audit_resource_group         = var.use_existing_audit_resource_group
-  devops_resource_group_name                = try("${var.prefix}-${var.devops_resource_group_name}", var.devops_resource_group_name, null)
+  devops_resource_group_name                = var.use_existing_devops_resource_group ? var.devops_resource_group_name : try("${var.prefix}-${var.devops_resource_group_name}", var.devops_resource_group_name, null)
   use_existing_devops_resource_group        = var.use_existing_devops_resource_group
-  edge_resource_group_name                  = try("${var.prefix}-${var.edge_resource_group_name}", var.edge_resource_group_name, null)
+  edge_resource_group_name                  = var.use_existing_edge_resource_group ? var.edge_resource_group_name : try("${var.prefix}-${var.edge_resource_group_name}", var.edge_resource_group_name, null)
   use_existing_edge_resource_group          = var.use_existing_edge_resource_group
-  management_resource_group_name            = try("${var.prefix}-${var.management_resource_group_name}", var.management_resource_group_name, null)
+  management_resource_group_name            = var.use_existing_management_resource_group ? var.management_resource_group_name : try("${var.prefix}-${var.management_resource_group_name}", var.management_resource_group_name, null)
   use_existing_management_resource_group    = var.use_existing_management_resource_group
-  observability_resource_group_name         = try("${var.prefix}-${var.observability_resource_group_name}", var.observability_resource_group_name, null)
+  observability_resource_group_name         = var.use_existing_observability_resource_group ? var.observability_resource_group_name : try("${var.prefix}-${var.observability_resource_group_name}", var.observability_resource_group_name, null)
   use_existing_observability_resource_group = var.use_existing_observability_resource_group
-  security_resource_group_name              = try("${var.prefix}-${var.security_resource_group_name}", var.security_resource_group_name, null)
+  security_resource_group_name              = var.use_existing_security_resource_group ? var.security_resource_group_name : try("${var.prefix}-${var.security_resource_group_name}", var.security_resource_group_name, null)
   use_existing_security_resource_group      = var.use_existing_security_resource_group
-  workload_resource_group_name              = try("${var.prefix}-${var.workload_resource_group_name}", var.workload_resource_group_name, null)
+  workload_resource_group_name              = var.use_existing_workload_resource_group ? var.workload_resource_group_name : try("${var.prefix}-${var.workload_resource_group_name}", var.workload_resource_group_name, null)
   use_existing_workload_resource_group      = var.use_existing_workload_resource_group
 
   # iam account settings

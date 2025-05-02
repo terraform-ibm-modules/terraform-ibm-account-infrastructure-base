@@ -5,14 +5,14 @@
 locals {
   # resource group logic
   rg_vars = {
-    global_resource_group        = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : null,
-    security_resource_group      = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_security_resource_group ? var.security_resource_group_name : null,
-    audit_resource_group         = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_audit_resource_group ? var.audit_resource_group_name : null,
-    observability_resource_group = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_observability_resource_group ? var.observability_resource_group_name : null,
-    management_resource_group    = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_management_resource_group ? var.management_resource_group_name : null,
-    workload_resource_group      = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_workload_resource_group ? var.workload_resource_group_name : null,
-    edge_resource_group          = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_edge_resource_group ? var.edge_resource_group_name : null,
-    devops_resource_group        = !var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : !var.use_existing_devops_resource_group ? var.devops_resource_group_name : null
+    single_resource_group        = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : null,
+    security_resource_group      = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : !var.use_existing_security_resource_group ? var.security_resource_group_name : null,
+    audit_resource_group         = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : !var.use_existing_audit_resource_group ? var.audit_resource_group_name : null,
+    observability_resource_group = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : !var.use_existing_observability_resource_group ? var.observability_resource_group_name : null,
+    management_resource_group    = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : !var.use_existing_management_resource_group ? var.management_resource_group_name : null,
+    workload_resource_group      = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : !var.use_existing_workload_resource_group ? var.workload_resource_group_name : null,
+    edge_resource_group          = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : !var.use_existing_edge_resource_group ? var.edge_resource_group_name : null,
+    devops_resource_group        = !var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : !var.use_existing_devops_resource_group ? var.devops_resource_group_name : null
   }
   rg_list = distinct(compact(values(local.rg_vars)))
 
@@ -22,14 +22,14 @@ locals {
 
   #existing resource group logic
   existing_rg_vars = {
-    existing_global_resource_group        = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : null,
-    existing_security_resource_group      = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_security_resource_group ? var.security_resource_group_name : null,
-    existing_audit_resource_group         = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_audit_resource_group ? var.audit_resource_group_name : null,
-    existing_observability_resource_group = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_observability_resource_group ? var.observability_resource_group_name : null,
-    existing_management_resource_group    = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_management_resource_group ? var.management_resource_group_name : null,
-    existing_workload_resource_group      = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_workload_resource_group ? var.workload_resource_group_name : null,
-    existing_edge_resource_group          = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_edge_resource_group ? var.edge_resource_group_name : null,
-    existing_devops_resource_group        = var.use_existing_global_resource_group && var.global_resource_group_name != null ? var.global_resource_group_name : var.use_existing_devops_resource_group ? var.devops_resource_group_name : null
+    existing_single_resource_group        = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : null,
+    existing_security_resource_group      = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : var.use_existing_security_resource_group ? var.security_resource_group_name : null,
+    existing_audit_resource_group         = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : var.use_existing_audit_resource_group ? var.audit_resource_group_name : null,
+    existing_observability_resource_group = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : var.use_existing_observability_resource_group ? var.observability_resource_group_name : null,
+    existing_management_resource_group    = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : var.use_existing_management_resource_group ? var.management_resource_group_name : null,
+    existing_workload_resource_group      = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : var.use_existing_workload_resource_group ? var.workload_resource_group_name : null,
+    existing_edge_resource_group          = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : var.use_existing_edge_resource_group ? var.edge_resource_group_name : null,
+    existing_devops_resource_group        = var.use_existing_single_resource_group && var.single_resource_group_name != null ? var.single_resource_group_name : var.use_existing_devops_resource_group ? var.devops_resource_group_name : null
   }
 
   existing_rg_list = distinct(compact(values(local.existing_rg_vars)))
@@ -39,12 +39,12 @@ locals {
   }
 
   # resource group outputs
-  global_resource_group = local.existing_rg_vars["existing_global_resource_group"] != null ? {
-    id   = module.existing_resource_group[local.existing_rg_vars["existing_global_resource_group"]].resource_group_id
-    name = module.existing_resource_group[local.existing_rg_vars["existing_global_resource_group"]].resource_group_name
-    } : local.rg_vars["global_resource_group"] != null ? {
-    id   = module.resource_group[local.rg_vars["global_resource_group"]].resource_group_id
-    name = module.resource_group[local.rg_vars["global_resource_group"]].resource_group_name
+  single_resource_group = local.existing_rg_vars["existing_single_resource_group"] != null ? {
+    id   = module.existing_resource_group[local.existing_rg_vars["existing_single_resource_group"]].resource_group_id
+    name = module.existing_resource_group[local.existing_rg_vars["existing_single_resource_group"]].resource_group_name
+    } : local.rg_vars["single_resource_group"] != null ? {
+    id   = module.resource_group[local.rg_vars["single_resource_group"]].resource_group_id
+    name = module.resource_group[local.rg_vars["single_resource_group"]].resource_group_name
     } : {
     id   = null
     name = null

@@ -2,84 +2,84 @@
 # Outputs
 ########################################################################################################################
 
-output "global_resource_group_id" {
-  value       = module.account_infrastructure_base.global_resource_group_id
-  description = "ID of the Resource Group created by the module."
+output "single_resource_group_id" {
+  value       = module.account_infrastructure_base.single_resource_group_id
+  description = "ID of the single Resource Group created by the module."
 }
 
-output "global_resource_group_name" {
-  value       = module.account_infrastructure_base.global_resource_group_name
-  description = "Name of the Resource Group created by the module."
+output "single_resource_group_name" {
+  value       = module.account_infrastructure_base.single_resource_group_name
+  description = "Name of the single Resource Group created by the module."
 }
 
 output "security_resource_group_id" {
   value       = module.account_infrastructure_base.security_resource_group_id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for security-related resources."
 }
 
 output "security_resource_group_name" {
   value       = module.account_infrastructure_base.security_resource_group_name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for security-related resources."
 }
 
 output "audit_resource_group_id" {
   value       = module.account_infrastructure_base.audit_resource_group_id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for audit-related resources."
 }
 
 output "audit_resource_group_name" {
   value       = module.account_infrastructure_base.audit_resource_group_name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for audit-related resources."
 }
 
 output "observability_resource_group_id" {
   value       = module.account_infrastructure_base.observability_resource_group_id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for observability-related resources."
 }
 
 output "observability_resource_group_name" {
   value       = module.account_infrastructure_base.observability_resource_group_name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for observability-related resources."
 }
 
 output "management_resource_group_id" {
   value       = module.account_infrastructure_base.management_resource_group_id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for management-related resources."
 }
 
 output "management_resource_group_name" {
   value       = module.account_infrastructure_base.management_resource_group_name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for management-related resources."
 }
 
 output "workload_resource_group_id" {
   value       = module.account_infrastructure_base.workload_resource_group_id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for workload-related resources."
 }
 
 output "workload_resource_group_name" {
   value       = module.account_infrastructure_base.workload_resource_group_name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for workload-related resources."
 }
 
 output "edge_resource_group_id" {
   value       = module.account_infrastructure_base.edge_resource_group_id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for edge network-related resources."
 }
 
 output "edge_resource_group_name" {
   value       = module.account_infrastructure_base.edge_resource_group_name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for edge network-related resources."
 }
 
 output "devops_resource_group_id" {
   value       = module.account_infrastructure_base.devops_resource_group_id
-  description = "ID of the Resource Group created by the module."
+  description = "ID of the Resource Group created for devops-related resources."
 }
 
 output "devops_resource_group_name" {
   value       = module.account_infrastructure_base.devops_resource_group_name
-  description = "Name of the Resource Group created by the module."
+  description = "Name of the Resource Group created for devops-related resources."
 }
 
 output "account_allowed_ip_addresses" {
