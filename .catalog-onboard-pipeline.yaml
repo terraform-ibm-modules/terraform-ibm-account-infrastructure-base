@@ -6,7 +6,7 @@ offerings:
     catalog_id: 7df1e4ca-d54c-4fd0-82ce-3d13247308cd
     offering_id: 63641cec-6093-4b4f-b7b0-98d2f4185cd6
     variations:
-      - name: fully-configurable
+      - name: resource-groups-with-account-settings
         mark_ready: true
         install_type: fullstack
         scc:
