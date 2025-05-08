@@ -4,17 +4,19 @@ This **Deployable Architecture** is typically consumed as a dependency by other 
 
 The deployable architecture supports multiple ways to define your resource‑group layout—from a single default group to a more opinionated structure for improved separation of duties and access control.
 
+For more more details and best practices for organizing resources, see the [IBM Cloud documentation](https://cloud.ibm.com/docs/account?topic=account-account_setup).
+
 ---
 
-## Deploy without Cloud automation for Key Protect
+## Deploy without Cloud automation for Account Configuration
 
 In many cases, a deployable architecture will start by placing all resources in a single resource group—typically the IBM Cloud `Default` group—unless you manually reconfigure it using the available input options.
 
 ---
 
-## Deploy with Cloud automation for Key Protect (standard)
+## Deploy with Cloud automation for Account Configuration (standard)
 
-When **Cloud automation for Key Protect** is included, it can create an *opinionated* structure of seven resource groups to keep security, audit, workload, and platform components neatly separated:
+When **Cloud automation for Account Configuration** is included, it can create an *opinionated* structure of seven resource groups to keep security, audit, workload, and platform components neatly separated:
 
 | Category      | Default Resource Group Name | Typical Use Case                                       |
 | ------------- | --------------------------- | ------------------------------------------------------ |
@@ -34,13 +36,13 @@ When **Cloud automation for Key Protect** is included, it can create an *opini
 
 ---
 
-## Deploy with Cloud automation for Key Protect (advanced)
+## Deploy with Cloud automation for Account Configuration (advanced)
 
 You can tailor the resource‑group configuration to meet your needs. The options below are listed in the order you will most often use them.
 
 ### 1 · Create multiple **new** resource groups (default)
 
-1. Edit **Cloud automation for Key Protect** ➜ **Optional** tab.
+1. Edit **Cloud automation for Account Configuration** ➜ **Optional** tab.
 2. Ensure `single_resource_group_name` is `null`.
 3. Provide custom names for any of the following variables:
 
@@ -55,7 +57,7 @@ You can tailor the resource‑group configuration to meet your needs. The option
 
 ### 2 · Re‑use **existing** resource groups
 
-1. Edit **Cloud automation for Key Protect** ➜ **Optional** tab.
+1. Edit **Cloud automation for Account Configuration** ➜ **Optional** tab.
 2. Ensure `single_resource_group_name` is `null`.
 3. For each group you want to reuse, set the group name and set the matching `use_existing_*_resource_group` flag to `true`.
 4. Click **Save**.
@@ -64,7 +66,7 @@ You can tailor the resource‑group configuration to meet your needs. The option
 
 Need a hybrid? For example, create a new *security* group while re‑using an existing *audit* group.
 
-1. Edit **Cloud automation for Key Protect** ➜ **Optional** tab.
+1. Edit **Cloud automation for Account Configuration** ➜ **Optional** tab.
 2. Set `single_resource_group_name` to `null`.
 3. Configure `security_resource_group_name` and leave `use_existing_security_resource_group = false`.
 4. Configure `audit_resource_group_name` and set `use_existing_audit_resource_group = true`.
@@ -72,14 +74,14 @@ Need a hybrid? For example, create a new *security* group while re‑using an ex
 
 ### 4 · Use one **existing** resource group for everything
 
-1. Edit **Cloud automation for Key Protect** ➜ **Optional** tab.
+1. Edit **Cloud automation for Account Configuration** ➜ **Optional** tab.
 2. Set `single_resource_group_name` to the name of the existing resource group you want to use.
 3. Set `use_existing_single_resource_group` to `true`.
 4. Click **Save**.
 
 ### 5 · Use one **new** resource group for everything
 
-1. Edit **Cloud automation for Key Protect** ➜ **Optional** tab.
+1. Edit **Cloud automation for Account Configuration** ➜ **Optional** tab.
 2. Set `single_resource_group_name` to the new group name you want to create.
 3. Click **Save**.
 

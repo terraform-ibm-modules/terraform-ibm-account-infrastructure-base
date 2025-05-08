@@ -1,6 +1,6 @@
 # Account Settings Configuration
 
-This document provides detailed guidance on how to customize the IBM Cloud **Account Settings** when using **Cloud automation for Key Protect**. These settings enhance security, access control, and compliance alignment across your IBM Cloud account.
+This document provides detailed guidance on how to customize the IBM Cloud **Account Settings** when using **Cloud automation for Account Configuration**. These settings enhance security, access control, and compliance alignment across your IBM Cloud account.
 
 Account settings are applied when you choose the **Resource groups with Account Settings** variation.
 
@@ -10,9 +10,9 @@ Account settings are applied when you choose the **Resource groups with Account 
 
 This deployable architecture configures the following:
 
-* IAM account security policies
-* Context‑Based Restriction (CBR) zones
-* A trusted profile for use with IBM Cloud Projects
+* IAM account security policies, for more details on [IAM account settings](https://cloud.ibm.com/docs/account)
+* Context‑Based Restriction (CBR) zones, for more details on [CBR](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-whatis)
+* A trusted profile for use with IBM Cloud Projects, for more details on [trusted profiles](https://cloud.ibm.com/docs/account?topic=account-identity-overview#trustedprofiles-bestpract)
 
 These settings follow IBM Cloud best practices and are particularly relevant for organizations working in regulated environments such as the [IBM Cloud for Financial Services (FS Cloud)](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about).
 
@@ -67,7 +67,7 @@ You can customize:
 To customize account settings:
 
 1. Open your **IBM Cloud Project**
-2. Locate the **Cloud automation for Key Protect** configuration
+2. Locate the **Cloud automation for Account Configuration** configuration
 3. Click **Edit**
 4. Select the **Optional** tab
 5. Update any IAM‑related input parameters (see table above)
@@ -77,4 +77,4 @@ These options allow you to tailor account governance to meet your organization�
 
 ---
 
-For a high‑level overview, see the [Cloud automation for Key Protect README](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/docs/about.md)
+For a high‑level overview, see the [Cloud automation for Account Configuration README](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/docs/about.md)

@@ -14,6 +14,7 @@ You can choose from two variations when deploying:
 ## Resource Groups – Organizing Your Cloud Resources
 
 IBM Cloud uses Resource Groups to help organize and manage your cloud resources, similar to folders on your computer.
+For more details on resource groups, see the [IBM Cloud documentation](https://cloud.ibm.com/docs/account?topic=account-account_setup).
 
 It provisions an opinionated structure of labeled resource groups for clearer separation of responsibilities and improved access control.
 
@@ -37,7 +38,12 @@ It provisions an opinionated structure of labeled resource groups for clearer se
 
 ## Account Settings – Enhancing Security, Access Control, and Compliance
 
-All account settings applied by this deployable architecture can be customized through input parameters in the deployable architecture interface (DA). This includes options for session timeout values, trusted profile names, and CBR configuration.
+All account settings applied by this deployable architecture can be customized through input parameters in the deployable architecture interface (DA). This includes options for session timeout values, trusted profile names, and context-based restrictions (CBR) configuration.
+For more details on the folliung topics see the IBM Cloud documentation:
+* [IAM account settings](https://cloud.ibm.com/docs/account?topic=account-overview)
+* [Context-based restrictions](https://cloud.ibm.com/docs/account?topic=account-context-restrictions-whatis)
+* [Trusted profiles](https://cloud.ibm.com/docs/account?topic=account-identity-overview#trustedprofiles-bestpract)
+* [Resource groups](https://cloud.ibm.com/docs/account?topic=account-account_setup)
 
 When using the **Resource groups with Account Settings** variation, the following defaults are applied to improve your account's security posture and readiness for regulated workloads:
 
