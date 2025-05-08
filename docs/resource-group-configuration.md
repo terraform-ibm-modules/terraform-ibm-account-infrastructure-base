@@ -87,4 +87,4 @@ Need a hybrid? For example, create a new *security* group while re‑using an ex
 
 ---
 
-For a complete overview, see the [Cloud automation for Account Configuration](./about.md).
+For a complete overview, see the [Cloud automation for Account Configuration](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/docs/about.md).

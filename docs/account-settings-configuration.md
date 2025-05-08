@@ -77,4 +77,4 @@ These options allow you to tailor account governance to meet your organization�
 
 ---
 
-For a high‑level overview, see the [Cloud automation for Key Protect README](./about.md)
+For a high‑level overview, see the [Cloud automation for Key Protect README](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/docs/about.md)
