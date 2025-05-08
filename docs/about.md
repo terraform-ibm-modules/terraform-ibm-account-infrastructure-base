@@ -1,4 +1,4 @@
-# Cloud automation for Key Protect
+# Cloud automation for Account Configuration
 
 This deployable architecture prepares your IBM Cloud account with the necessary configurations to ensure a secure and organized environment for your architecture.
 
@@ -29,9 +29,9 @@ It provisions an opinionated structure of labeled resource groups for clearer se
 
 **Note:** If you're using a single resource group, all categories will share that group.
 
-**Tip:** Deployable architectures that depend on **Cloud automation for Key Protect** will automatically map resources to the appropriate group if this structure is enabled.
+**Tip:** Deployable architectures that depend on **Cloud automation for Account Configuration** will automatically map resources to the appropriate group if this structure is enabled.
 
-**Important:** To customize group names or disable the opinionated structure, edit the **Cloud automation for Key Protect** configuration in your IBM Cloud Project.
+**Important:** To customize group names or disable the opinionated structure, edit the **Cloud automation for Account Configuration** configuration in your IBM Cloud Project [more details](./resource-group-configuration.md).
 
 ---
 
@@ -67,4 +67,4 @@ This flexibility allows teams to enforce enterprise-wide standards or tailor dep
 
 The **Cloud automation for Key Protect** deployable architecture lays a secure and scalable foundation for your IBM Cloud account. Whether you're just organizing workloads or preparing for strict governance and compliance, this deployable architecture can be configured to meet your needs.
 
-For more information, visit the [terraform-ibm-account-infrastructure-base repository](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main).
+For more information, visit the [terraform-ibm-account-infrastructure-base repository](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main) and the [IBM Cloud account documentation](https://cloud.ibm.com/docs/account).

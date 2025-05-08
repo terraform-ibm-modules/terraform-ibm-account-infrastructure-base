@@ -77,4 +77,4 @@ These options allow you to tailor account governance to meet your organization�
 
 ---
 
-For a high‑level overview, see the [Cloud automation for Key Protect README](./about.md) and the [IBM Cloud account documentation](https://cloud.ibm.com/docs/account).
+For a high‑level overview, see the [Cloud automation for Key Protect README](./about.md)

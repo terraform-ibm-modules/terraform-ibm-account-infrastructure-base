@@ -87,4 +87,4 @@ Need a hybrid? For example, create a new *security* group while re‑using an ex
 
 ---
 
-For the bigger picture, see the [Cloud automation for Key Protect README](./about.md).
+For a complete overview, see the [Cloud automation for Account Configuration](./about.md).
