@@ -47,7 +47,7 @@ variable "allowed_ip_addresses" {
 variable "single_resource_group_name" {
   type        = string
   description = "Use a single resource group for all infrastructure, when this variable is provided only one resource group will be created and all other resource group name variables will be ignored. If `prefix` is provided, it is prefixed on the name in the following format: `<prefix>-<single_resource_group_name>`."
-  default     = "Default"
+  default     = null
 }
 
 variable "use_existing_single_resource_group" {
