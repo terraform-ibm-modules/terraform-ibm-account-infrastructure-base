@@ -69,7 +69,6 @@
             }
           ],
           "architecture": {
-            "descriptions": "The Account Configuration architecture provides a standardized approach to setting up cloud account settings as outlined in the IBM Cloud Framework for Financial Services. The architecture includes configurations for IAM settings and access controls that enforce security best practices. You can use this architecture as a base for deploying additional services and resources in multiple types of accounts, such as administrative or workload accounts.",
             "diagrams": [
               {
                 "diagram": {
@@ -284,10 +283,10 @@
               }
             },
             {
-              "key":"provision_cbr"
+              "key": "provision_cbr"
             },
             {
-              "key":"cbr_enforcement_mode",
+              "key": "cbr_enforcement_mode",
               "options": [
                 {
                   "displayname": "Enabled",
@@ -329,7 +328,6 @@
             }
           ],
           "architecture": {
-            "description": "The Account Configuration architecture provides a standardized set of resource groups to prepare for different scenarios. You can use this architecture as a base for deploying additional services and resources in multiple types of accounts, such as administrative or workload accounts.",
             "diagrams": [
               {
                 "diagram": {
@@ -497,11 +495,11 @@
               "hidden": true
             },
             {
-              "key":"cbr_enforcement_mode",
+              "key": "cbr_enforcement_mode",
               "hidden": true
             },
             {
-              "key":"provision_cbr",
+              "key": "provision_cbr",
               "default_value": false,
               "hidden": true
             },
