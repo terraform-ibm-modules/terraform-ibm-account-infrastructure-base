@@ -339,9 +339,10 @@
           "iam_permissions": [
             {
               "role_crns": [
-                "crn:v1:bluemix:public:iam::::role:Editor"
+                "crn:v1:bluemix:public:iam::::role:Administrator"
               ],
-              "service_name": "Resource group only"
+              "service_name": "All Identity and Access enabled services",
+              "notes": "Administrator access is required for all Account Management services."
             }
           ],
           "architecture": {
