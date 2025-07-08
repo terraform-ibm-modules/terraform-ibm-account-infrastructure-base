@@ -68,14 +68,7 @@
               ],
               "service_name": "All Account Management services",
               "notes": "Administrator access is required for all Account Management services."
-            },
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::role:Viewer"
-              ],
-              "service_name": "Resource group only",
-              "notes": "Viewer access is required in the resource group you want to provision in."
-    }
+            }
           ],
           "architecture": {
              "features": [
