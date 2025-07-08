@@ -88,7 +88,7 @@
               {
                 "diagram": {
                   "caption": "Account Configuration",
-                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/refs/heads/14185-improve-DA-user-experience/reference-architectures/base-account-enterprise.svg",
+                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/main/reference-architectures/base-account-enterprise.svg",
                   "type": "image/svg+xml"
                 },
                 "description": "**IBM Account Configuration** <br/> <br/> <b>Description</b> <br/>The Account Configuration architecture provides a standardized approach to setting up cloud account settings as outlined in the IBM Cloud Framework for Financial Services. The architecture includes configurations for IAM settings and access controls that enforce security best practices. You can use this architecture as a base for deploying additional services and resources in multiple types of accounts, such as administrative or workload accounts."
@@ -356,7 +356,7 @@
               {
                 "diagram": {
                   "caption": "Resource Groups",
-                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/refs/heads/14185-improve-DA-user-experience/reference-architectures/rg-only.svg",
+                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/main/reference-architectures/rg-only.svg",
                   "type": "image/svg+xml"
                 },
                 "description": "**IBM Account Configuration** <br/> <br/> <b>Description</b> <br/>The Account Configuration architecture provides a standardized set of resource groups to prepare for different scenarios. You can use this architecture as a base for deploying additional services and resources in multiple types of accounts, such as administrative or workload accounts."
