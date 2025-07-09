@@ -73,6 +73,14 @@ Manage > Access (IAM) > Access groups > Access policies.
 
 You need the following permissions to run this module.
 
+* Resource groups with account settings
+- Account Management
+    - **All Account Management** services
+        - `Administrator` platform access
+    - **All Identity and Access enabled** services (For enable provisioning CBR)
+        - `Administrator` platform access
+
+* Resource groups only
 - Account Management
     - **All Account Management** services
         - `Administrator` platform access

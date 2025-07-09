@@ -67,7 +67,14 @@
                 "crn:v1:bluemix:public:iam::::role:Administrator"
               ],
               "service_name": "All Account Management services",
-              "notes": "Administrator access is required for all Account Management services."
+              "notes": "Administrator access is required for all Account Management services for resource group."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Administrator"
+              ],
+              "service_name": "All Identity and Access enabled services",
+              "notes": "Administrator access is required for enable provisioning of some CBRs."
             }
           ],
           "architecture": {
@@ -335,7 +342,7 @@
                 "crn:v1:bluemix:public:iam::::role:Administrator"
               ],
               "service_name": "All Account Management services",
-              "notes": "Administrator access is required for all Account Management services."
+              "notes": "Administrator access is required for all Account Management services for resource group."
             }
           ],
           "architecture": {
