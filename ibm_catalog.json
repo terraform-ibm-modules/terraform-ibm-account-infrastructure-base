@@ -74,7 +74,7 @@
                 "crn:v1:bluemix:public:iam::::role:Administrator"
               ],
               "service_name": "All Identity and Access enabled services",
-              "notes": "Administrator access is required for enable provisioning of some CBRs."
+              "notes": "(Optional) Administrator access is required for enable provisioning of some CBRs only. It is not required if provision_cbr is set to false"
             }
           ],
           "architecture": {
