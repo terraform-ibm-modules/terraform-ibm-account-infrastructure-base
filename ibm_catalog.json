@@ -67,21 +67,21 @@
                 "crn:v1:bluemix:public:iam::::role:Administrator"
               ],
               "service_name": "All Account Management services",
-              "notes": "Administrator access is required for all Account Management services for resource group."
+              "notes": "Administrator access is required for resource group creation and deletion."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Administrator"
               ],
               "service_name": "All Identity and Access enabled services",
-              "notes": "(Optional) Administrator access is required for enable provisioning of some CBRs only. It is not required if provision_cbr is set to false"
+              "notes": "(Optional) Only required if creating context-based restrictions which can be toggled using the `provision_cbr` input."
             }
           ],
           "architecture": {
              "features": [
               {
                 "title": " ",
-                "description": "Configured to use IBM secure by default standards, but can be edited to fit your use case."
+                "description": "Orchestrates the creation of resource groups, account-level IAM settings, trusted profiles, and context-based restriction (CBR) rules."
               }
             ],
             "diagrams": [
@@ -342,14 +342,14 @@
                 "crn:v1:bluemix:public:iam::::role:Administrator"
               ],
               "service_name": "All Account Management services",
-              "notes": "Administrator access is required for all Account Management services for resource group."
+              "notes": "Administrator access is required for resource group creation and deletion."
             }
           ],
           "architecture": {
              "features": [
               {
                 "title": " ",
-                "description": "Configured to use IBM secure by default standards, but can be edited to fit your use case."
+                "description": "Orchestrates the creation of resource groups as well as referencing existing resource groups across different functional categories."
               }
             ],
             "diagrams": [
