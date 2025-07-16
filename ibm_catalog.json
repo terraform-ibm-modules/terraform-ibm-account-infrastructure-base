@@ -9,7 +9,8 @@
         "target_terraform",
         "terraform",
         "security",
-        "solution"
+        "solution",
+        "converged_infra"
       ],
       "keywords": [
         "base layer",
@@ -78,7 +79,7 @@
             }
           ],
           "architecture": {
-             "features": [
+            "features": [
               {
                 "title": " ",
                 "description": "Orchestrates the creation of resource groups, account-level IAM settings, trusted profiles, and context-based restriction (CBR) rules."
@@ -346,7 +347,7 @@
             }
           ],
           "architecture": {
-             "features": [
+            "features": [
               {
                 "title": " ",
                 "description": "Orchestrates the creation of resource groups as well as referencing existing resource groups across different functional categories."
