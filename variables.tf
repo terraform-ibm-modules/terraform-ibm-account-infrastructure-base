@@ -73,6 +73,155 @@ variable "use_existing_observability_resource_group" {
 variable "management_resource_group_name" {
   type        = string
   description = "The name of the management resource group to create."
+  default     = "management-plane-rg"
+
+  validation {
+    condition     = length(coalesce(var.management_resource_group_name, "null")) <= 40
+    error_message = "`management_resource_group_name` must be 40 characters or less."
+  }
+}
+
+variable "use_existing_management_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `management_resource_group_name`."
+  default     = false
+}
+
+variable "workload_resource_group_name" {
+  type        = string
+  description = "The name of the workload resource group to create."
+  default     = "workload-rg"
+
+  validation {
+    condition     = length(coalesce(var.workload_resource_group_name, "null")) <= 40
+    error_message = "`workload_resource_group_name` must be 40 characters or less."
+  }
+}
+
+variable "use_existing_workload_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `workload_resource_group_name`."
+  default     = false
+}
+
+variable "edge_resource_group_name" {
+  type        = string
+  description = "The name of the edge resource group to create."
+  default     = "edge-rg"
+
+  validation {
+    condition     = length(coalesce(var.edge_resource_group_name, "null")) <= 40
+    error_message = "`edge_resource_group_name` must be 40 characters or less."
+  }
+}
+
+variable "use_existing_edge_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `edge_resource_group_name`."
+  default     = false
+}
+
+variable "devops_resource_group_name" {
+  type        = string
+  description = "The name of the devops resource group to create."
+  default     = "devops-tools-rg"
+
+  validation {
+    condition     = length(coalesce(var.devops_resource_group_name, "null")) <= 40
+    error_message = "`devops_resource_group_name` must be 40 characters or less."
+  }
+}
+
+variable "use_existing_devops_resource_group" {
+  type        = bool
+  description = "Set to `true` to use an existing resource group that has the name provided in `devops_resource_group_name`."
+  default     = false
+}
+
+variable "skip_iam_account_settings" {
+  type        = bool
+  description = "Set to `true` to skip editing the IAM account settings for the account."
+  default     = false
+}
+
+variable "access_token_expiration" {
+  type        = string
+  description = "Defines the access token expiration in seconds. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = "3600"
+}
+
+variable "active_session_timeout" {
+  type        = number
+  description = "Specify how long, in seconds, a user is allowed to work continuously in the account. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = 86400
+}
+
+variable "allowed_ip_addresses" {
+  type        = list(any)
+  description = "List of the IP addresses and subnets that can create IAM tokens for the account. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = []
+}
+
+variable "api_creation" {
+  type        = string
+  description = "When this variable is set to `RESTRICTED`, only users who are assigned the User API key creator role on the IAM Identity Service can create API keys, including the account owner. When set to `NOT_SET`, the previous value for this variable is cleared. Allowed values are `RESTRICTED`, `NOT_RESTRICTED`, or `NOT_SET`. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = "RESTRICTED"
+}
+
+variable "enforce_allowed_ip_addresses" {
+  type        = bool
+  description = "Whether the IP address restriction is enforced. Set the value to `false` to test the impact of the restriction on your account. After the impact of the restriction is determined, set the value to `true`."
+  default     = true
+}
+
+variable "inactive_session_timeout" {
+  type        = string
+  description = "Specify how long, in seconds, a user is allowed to stay logged in to the account while being inactive or idle. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = "7200"
+}
+
+variable "max_sessions_per_identity" {
+  type        = string
+  description = "Defines the maximum allowed sessions per identity required by the account. Supports any whole number greater than `0`, or `NOT_SET` to clear account settings and use the service default. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = "NOT_SET"
+}
+
+variable "mfa" {
+  type        = string
+  description = "Specify a multifactor authentication (MFA) method in the account. Supported valid values are `NONE` (no MFA method set), `TOTP` (for all non-federated IBMid users), `TOTP4ALL` (for all users), `LEVEL1` (email-based MFA for all users), `LEVEL2` (TOTP-based MFA for all users), `LEVEL3` (U2F MFA for all users). If `skip_iam_account_settings` is set to `true`, this variable is ignored."
+  default     = "TOTP4ALL"
+}
+
+variable "public_access_enabled" {
+  type        = bool
+  description = "Whether the public access group is available to anyone regardless of if they have access to your account or not. If `skip_iam_account_settings` is set to `true`, this variable is ignored."
+  default     = false
+}
+
+variable "refresh_token_expiration" {
+  type        = string
+  description = "Defines the refresh token expiration in seconds. If `skip_iam_account_settings` is set to `true`, this variable is ignored."
+  default     = "259200"
+}
+
+variable "serviceid_creation" {
+  type        = string
+  description = "When this variable is set to `RESTRICTED`, only users who are assigned the Service ID creator role on the IAM Identity Service can create service IDs, including the account owner. When set to `NOT_SET`, the previous value for this variable is cleared. Allowed values are `RESTRICTED`, `NOT_RESTRICTED`, or `NOT_SET`. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = "RESTRICTED"
+}
+
+variable "shell_settings_enabled" {
+  type        = bool
+  description = "Whether global shell settings to all users in the account is enabled or disabled. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = false
+}
+
+variable "skip_cloud_shell_calls" {
+  type        = bool
+  description = "Skip Cloud Shell calls in the account. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  default     = false
+}
+
 variable "user_mfa" {
   type = set(object({
     iam_id = string
