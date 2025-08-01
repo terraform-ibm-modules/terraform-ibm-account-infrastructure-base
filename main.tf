@@ -124,7 +124,7 @@ locals {
 module "resource_group" {
   for_each            = local.rg_map
   source              = "terraform-ibm-modules/resource-group/ibm"
-  version             = "1.2.1"
+  version             = "1.3.0"
   resource_group_name = each.key
 }
 
@@ -136,7 +136,7 @@ moved {
 module "existing_resource_group" {
   for_each                     = local.existing_rg_map
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.2.1"
+  version                      = "1.3.0"
   existing_resource_group_name = each.key
 }
 
