@@ -24,10 +24,6 @@ This module is a general base layer module for setting up a newly provisioned ac
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
-
-## Reference architectures
-- [IBM Cloud Account Infrastructure Base solution](./solutions/account-infrastructure-base/)
-
 <!-- This heading should always match the name of the root level module (aka the repo name) -->
 ## terraform-ibm-account-infrastructure-base
 
