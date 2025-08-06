@@ -194,7 +194,7 @@ variable "mfa" {
 
 variable "public_access_enabled" {
   type        = bool
-  description = "Whether the public access group is available to anyone regardless of if they have access to your account or not. If `skip_iam_account_settings` is set to `true`, this variable is ignored."
+  description = "Whether the public access group is available to anyone regardless of whether they have access to your account or not. If `skip_iam_account_settings` is set to `true`, this variable is ignored."
   default     = false
 }
 
