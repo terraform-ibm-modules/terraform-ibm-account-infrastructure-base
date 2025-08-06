@@ -276,7 +276,7 @@ variable "trusted_profile_roles" {
 
 variable "provision_cbr" {
   type        = bool
-  description = "Whether to enable the creation of context-based restriction rules and zones in the module. Default is `false`."
+  description = "Set to `true` to create context-based restriction rules and zones in the module. The default is 'false'."
   default     = false
 }
 
@@ -288,79 +288,79 @@ variable "cbr_prefix" {
 
 variable "cbr_allow_cos_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Object Storage to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Object Storage to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_block_storage_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Block Storage for VPC to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Block Storage for VPC to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_roks_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Red Hat OpenShift to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Red Hat OpenShift to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_icd_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows IBM cloud databases to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow IBM Cloud databases to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_event_streams_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Event Streams to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Event Streams to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_container_registry" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to access Container Registry. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Virtual Private Clouds to access the Container Registry. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_cos" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Virtual Private Clouds to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_iam_groups" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to access IAM groups. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Virtual Private Clouds to access IAM groups. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_iam_access_management" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to access IAM access management. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Virtual Private Clouds to access IAM access management. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_at_to_cos" {
   type        = bool
-  description = "Whether to enable the rule that allows Activity Tracker Event Routing to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Activity Tracker Event Routing to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_iks_to_is" {
   type        = bool
-  description = "Whether to enable the rule that allows the Kubernetes Service to access VPC Infrastructure Services. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow the Kubernetes service to access Virtual Private Cloud Infrastructure Services. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_is_to_cos" {
   type        = bool
-  description = "Whether to enable the rule that allows VPC Infrastructure Services to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to allow Virtual Private Cloud Infrastructure Services to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_scc_to_cos" {
   type        = bool
-  description = "Whether to enable the rule that allows Security and Compliance Center to access Object Storage. Default is `true` if `provision_cbr` is `true`."
+  description = "Set to `true` to allow Security and Compliance Center to access Object Storage. Default is `true` if `provision_cbr` is `true`."
   default     = true
 }
 
