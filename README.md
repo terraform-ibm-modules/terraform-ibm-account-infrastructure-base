@@ -24,10 +24,6 @@ This module is a general base layer module for setting up a newly provisioned ac
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
-
-## Reference architectures
-- [IBM Cloud Account Infrastructure Base solution](./solutions/account-infrastructure-base/)
-
 <!-- This heading should always match the name of the root level module (aka the repo name) -->
 ## terraform-ibm-account-infrastructure-base
 
@@ -93,9 +89,9 @@ You need the following permissions to run this module.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_account_settings"></a> [account\_settings](#module\_account\_settings) | terraform-ibm-modules/iam-account-settings/ibm | 2.12.0 |
-| <a name="module_cbr_fscloud"></a> [cbr\_fscloud](#module\_cbr\_fscloud) | terraform-ibm-modules/cbr/ibm//modules/fscloud | 1.32.4 |
-| <a name="module_existing_resource_group"></a> [existing\_resource\_group](#module\_existing\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.1 |
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.1 |
+| <a name="module_cbr_fscloud"></a> [cbr\_fscloud](#module\_cbr\_fscloud) | terraform-ibm-modules/cbr/ibm//modules/fscloud | 1.32.6 |
+| <a name="module_existing_resource_group"></a> [existing\_resource\_group](#module\_existing\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.3.0 |
+| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.3.0 |
 | <a name="module_trusted_profile_projects"></a> [trusted\_profile\_projects](#module\_trusted\_profile\_projects) | terraform-ibm-modules/trusted-profile/ibm | 2.3.1 |
 
 ### Resources

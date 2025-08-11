@@ -124,7 +124,7 @@ locals {
 module "resource_group" {
   for_each            = local.rg_map
   source              = "terraform-ibm-modules/resource-group/ibm"
-  version             = "1.2.1"
+  version             = "1.3.0"
   resource_group_name = each.key
 }
 
@@ -136,7 +136,7 @@ moved {
 module "existing_resource_group" {
   for_each                     = local.existing_rg_map
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.2.1"
+  version                      = "1.3.0"
   existing_resource_group_name = each.key
 }
 
@@ -188,7 +188,7 @@ module "trusted_profile_projects" {
 module "cbr_fscloud" {
   count                                  = var.provision_cbr ? 1 : 0
   source                                 = "terraform-ibm-modules/cbr/ibm//modules/fscloud"
-  version                                = "1.32.4"
+  version                                = "1.32.6"
   prefix                                 = var.cbr_prefix
   zone_vpc_crn_list                      = []
   allow_cos_to_kms                       = var.cbr_allow_cos_to_kms
