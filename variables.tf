@@ -212,7 +212,7 @@ variable "serviceid_creation" {
 
 variable "shell_settings_enabled" {
   type        = bool
-  description = "Whether global shell settings to all users in the account is enabled or disabled. This variable is ignored when `skip_iam_account_settings` is set to `true`."
+  description = "Whether global shell settings for all users in the account are enabled or disabled. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = false
 }
 
