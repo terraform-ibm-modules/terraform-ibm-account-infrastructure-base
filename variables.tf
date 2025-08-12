@@ -261,7 +261,7 @@ variable "trusted_profile_name" {
 variable "trusted_profile_description" {
   type        = string
   description = "Description of the trusted profile."
-  default     = "Trusted Profile for access to IBM Cloud projects"
+  default     = "Trusted profile that authorizes the project to deploy to your target account."
 }
 
 variable "trusted_profile_roles" {
