@@ -288,79 +288,79 @@ variable "cbr_prefix" {
 
 variable "cbr_allow_cos_to_kms" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Object Storage to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Object Storage access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_block_storage_to_kms" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Block Storage for VPC to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Block Storage for VPC access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_roks_to_kms" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Red Hat OpenShift to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Red Hat OpenShift access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_icd_to_kms" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows IBM Cloud databases to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows IBM Cloud databases access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_event_streams_to_kms" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Event Streams to access the key management service. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Event Streams access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_container_registry" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds to access the Container Registry. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds access to the Container Registry. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_cos" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds access to Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_iam_groups" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds to access IAM groups. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds access to IAM groups. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_iam_access_management" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds to access IAM access management. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Clouds access to IAM access management. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_at_to_cos" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Activity Tracker Event Routing to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Activity Tracker Event Routing access to Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_iks_to_is" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows the Kubernetes service to access Virtual Private Cloud Infrastructure Services. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows the Kubernetes service access to Virtual Private Cloud Infrastructure Services. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_is_to_cos" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Cloud Infrastructure Services to access Object Storage. Default is `true` if `provision_cbr` is set to `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Virtual Private Cloud Infrastructure Services access to Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_scc_to_cos" {
   type        = bool
-  description = "Set to `true` to enable the context-based restriction rule that allows Security and Compliance Center to access Object Storage. Default is `true` if `provision_cbr` is `true`."
+  description = "Set to `true` to enable the context-based restriction rule that allows Security and Compliance Center access to Object Storage. Default is `true` if `provision_cbr` is `true`."
   default     = true
 }
 
