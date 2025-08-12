@@ -194,7 +194,7 @@ variable "mfa" {
 
 variable "public_access_enabled" {
   type        = bool
-  description = "Specifies whether the public access group is available to anyone, regardless of whether they have access to your account or not. When enabled, assigned access policies can make resources accessible without authentication. If skip_iam_account_settings is set to true, this variable is ignored."
+  description = "Specifies whether the public access group is available to anyone, regardless of whether they have access to your account or not. When enabled, assigned access policies can make resources accessible without authentication. If `skip_iam_account_settings` is set to true, this variable is ignored."
   default     = false
 }
 
