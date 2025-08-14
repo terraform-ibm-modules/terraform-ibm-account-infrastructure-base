@@ -140,7 +140,7 @@ variable "use_existing_devops_resource_group" {
 
 variable "skip_iam_account_settings" {
   type        = bool
-  description = "Set to `true` to skip editing the IAM account settings for the account."
+  description = "When set to `true`, only resource groups are created and IAM settings are not applied to the account."
   default     = false
 }
 
