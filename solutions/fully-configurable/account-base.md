@@ -21,7 +21,7 @@ If the single resource group name is not provided, the following resource groups
     - A resource group to be used for the provisioning of any devops resources in the account
 - Edge resource group
     - A resource group to be used for the provisioning of any edge network resources in the account
-- Managmenet resource group
+- Management resource group
     - A resource group to be used for the provisioning of any management resources in the account
 - Observability resource group
     - A resource group to be used for the provisioning of any observability resources in the account
