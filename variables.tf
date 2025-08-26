@@ -4,7 +4,7 @@
 
 variable "single_resource_group_name" {
   type        = string
-  description = "The name of the single resource group to create. When this variable is provided only one resource group will be created and all other resource group name variables will be ignored."
+  description = "The name of the resource group to create. When this variable is provided, only one resource group is created and all other resource group name variables are ignored."
   default     = null
 
   validation {
@@ -140,85 +140,85 @@ variable "use_existing_devops_resource_group" {
 
 variable "skip_iam_account_settings" {
   type        = bool
-  description = "Set to true to skip the IAM account settings being applied to the account"
+  description = "When set to `true`, only resource groups are created and IAM settings are not applied to the account."
   default     = false
 }
 
 variable "access_token_expiration" {
   type        = string
-  description = "Defines the access token expiration in seconds, has no effect when `skip_iam_account_settings` is true."
+  description = "Defines the access token expiration in seconds. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = "3600"
 }
 
 variable "active_session_timeout" {
   type        = number
-  description = "Specify how long (seconds) a user is allowed to work continuously in the account, has no effect when `skip_iam_account_settings` is true."
+  description = "Specify how long, in seconds, a user is allowed to work continuously in the account. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = 86400
 }
 
 variable "allowed_ip_addresses" {
   type        = list(any)
-  description = "List of the IP addresses and subnets from which IAM tokens can be created for the account, has no effect when `skip_iam_account_settings` is true."
+  description = "List of the IP addresses and subnets that can create IAM tokens for the account. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = []
 }
 
 variable "api_creation" {
   type        = string
-  description = "When restriction is enabled, only users, including the account owner, assigned the User API key creator role on the IAM Identity Service can create API keys. Allowed values are 'RESTRICTED', 'NOT_RESTRICTED', or 'NOT_SET' (to 'unset' a previous set value), has no effect when `skip_iam_account_settings` is true."
+  description = "When this variable is set to `RESTRICTED`, only users who are assigned the User API key creator role on the IAM Identity Service can create API keys, including the account owner. When set to `NOT_SET`, the previous value for this variable is cleared. Allowed values are `RESTRICTED`, `NOT_RESTRICTED`, or `NOT_SET`. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = "RESTRICTED"
 }
 
 variable "enforce_allowed_ip_addresses" {
   type        = bool
-  description = "Whether the IP address restriction is enforced. Set the value to `false` to test the impact of the restriction on your account, once the impact of the restriction has been observed set the value to `true`."
+  description = "Whether the IP address restriction is enforced. Set the value to `false` to test the impact of the restriction on your account. After the impact of the restriction is determined, set the value to `true`."
   default     = true
 }
 
 variable "inactive_session_timeout" {
   type        = string
-  description = "Specify how long (seconds) a user is allowed to stay logged in the account while being inactive/idle, has no effect when `skip_iam_account_settings` is true."
+  description = "Specify how long, in seconds, a user is allowed to stay logged in to the account while being inactive or idle. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = "7200"
 }
 
 variable "max_sessions_per_identity" {
   type        = string
-  description = "Defines the maximum allowed sessions per identity required by the account. Supports any whole number greater than '0', or 'NOT_SET' to unset account setting and use service default, has no effect when `skip_iam_account_settings` is true."
+  description = "Defines the maximum allowed sessions per identity required by the account. Supports any whole number greater than `0`, or `NOT_SET` to clear account settings and use the service default. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = "NOT_SET"
 }
 
 variable "mfa" {
   type        = string
-  description = "Specify Multi-Factor Authentication method in the account. Supported valid values are 'NONE' (No MFA trait set), 'TOTP' (For all non-federated IBMId users), 'TOTP4ALL' (For all users), 'LEVEL1' (Email based MFA for all users), 'LEVEL2' (TOTP based MFA for all users), 'LEVEL3' (U2F MFA for all users), has no effect when `skip_iam_account_settings` is true."
+  description = "Specify a multifactor authentication (MFA) method in the account. Supported valid values are `NONE` (no MFA method set), `TOTP` (for all non-federated IBMid users), `TOTP4ALL` (for all users), `LEVEL1` (email-based MFA for all users), `LEVEL2` (TOTP-based MFA for all users), `LEVEL3` (U2F MFA for all users). If `skip_iam_account_settings` is set to `true`, this variable is ignored."
   default     = "TOTP4ALL"
 }
 
 variable "public_access_enabled" {
   type        = bool
-  description = "Enable/Disable public access group in which resources are open anyone regardless if they are member of your account or not, has no effect when `skip_iam_account_settings` is true."
+  description = "Specifies whether the public access group is available to anyone, regardless of whether they have access to your account or not. When enabled, assigned access policies can make resources accessible without authentication. If `skip_iam_account_settings` is set to true, this variable is ignored."
   default     = false
 }
 
 variable "refresh_token_expiration" {
   type        = string
-  description = "Defines the refresh token expiration in seconds, has no effect when `skip_iam_account_settings` is true."
+  description = "Defines the refresh token expiration in seconds. If `skip_iam_account_settings` is set to `true`, this variable is ignored."
   default     = "259200"
 }
 
 variable "serviceid_creation" {
   type        = string
-  description = "When restriction is enabled, only users, including the account owner, assigned the Service ID creator role on the IAM Identity Service can create service IDs, has no effect when `skip_iam_account_settings` is true. Allowed values are 'RESTRICTED', 'NOT_RESTRICTED', or 'NOT_SET' (to 'unset' a previous set value)."
+  description = "When this variable is set to `RESTRICTED`, only users who are assigned the Service ID creator role on the IAM Identity Service can create service IDs, including the account owner. When set to `NOT_SET`, the previous value for this variable is cleared. Allowed values are `RESTRICTED`, `NOT_RESTRICTED`, or `NOT_SET`. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = "RESTRICTED"
 }
 
 variable "shell_settings_enabled" {
   type        = bool
-  description = "Enable global shell settings to all users in the account, has no effect when `skip_iam_account_settings` is true."
+  description = "Whether global shell settings for all users in the account are enabled or disabled. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = false
 }
 
 variable "skip_cloud_shell_calls" {
   type        = bool
-  description = "Skip Cloud Shell calls in the account, has no effect when `skip_iam_account_settings` is true."
+  description = "Skip Cloud Shell calls in the account. This variable is ignored when `skip_iam_account_settings` is set to `true`."
   default     = false
 }
 
@@ -227,13 +227,13 @@ variable "user_mfa" {
     iam_id = string
     mfa    = string
   }))
-  description = "Specify Multi-Factor Authentication method for specific users the account. Supported valid values are 'NONE' (No MFA trait set), 'TOTP' (For all non-federated IBMId users), 'TOTP4ALL' (For all users), 'LEVEL1' (Email based MFA for all users), 'LEVEL2' (TOTP based MFA for all users), 'LEVEL3' (U2F MFA for all users). Example of format is available here > https://github.com/terraform-ibm-modules/terraform-ibm-iam-account-settings#usage, has no effect when `skip_iam_account_settings` is true."
+  description = "Specify a multifactor authentication (MFA) method for specific users the account. Supported valid values are `NONE` (no MFA method set), `TOTP` (for all non-federated IBMid users), `TOTP4ALL` (for all users), `LEVEL1` (email-based MFA for all users), `LEVEL2` (TOTP-based MFA for all users), `LEVEL3` (U2F MFA for all users). Example format is available here > https://github.com/terraform-ibm-modules/terraform-ibm-iam-account-settings#usage. If `skip_iam_account_settings` is set to `true`, this variable is ignored."
   default     = []
 }
 
 variable "user_mfa_reset" {
   type        = bool
-  description = "Set to true to delete all user MFA settings configured in the targeted account, and ignoring entries declared in var user_mfa, has no effect when `skip_iam_account_settings` is true."
+  description = "Set to `true` to delete all user multifactor authentication (MFA) settings in the target account, and ignore entries declared in `var user_mfa`. If `skip_iam_account_settings` is set to `true`, this variable is ignored."
   default     = false
 }
 
@@ -243,25 +243,25 @@ variable "user_mfa_reset" {
 
 variable "provision_trusted_profile_projects" {
   type        = bool
-  description = "Controls whether the Trusted Profile for Projects is provisioned."
+  description = "Whether the trusted profile that authorizes an IBM Cloud project to deploy to your target account is created."
   default     = true
 }
 
 variable "trusted_profile_name" {
   type        = string
-  description = "Name of the trusted profile, required if `provision_trusted_profile_projects` is true."
+  description = "Name of the trusted profile, required if `provision_trusted_profile_projects` is set to `true`."
   default     = null
 
   validation {
     condition     = !var.provision_trusted_profile_projects || var.trusted_profile_name != null
-    error_message = "`trusted_profile_name` is required if `provision_trusted_profile_projects` is true."
+    error_message = "`trusted_profile_name` is required if `provision_trusted_profile_projects` is set to `true`."
   }
 }
 
 variable "trusted_profile_description" {
   type        = string
   description = "Description of the trusted profile."
-  default     = "Trusted Profile for Projects access"
+  default     = "Trusted profile that authorizes the project to deploy to your target account."
 }
 
 variable "trusted_profile_roles" {
@@ -271,102 +271,102 @@ variable "trusted_profile_roles" {
 }
 
 ########################################################################################################################
-# CBR Variables
+# Context-Based Restriction Variables
 ########################################################################################################################
 
 variable "provision_cbr" {
   type        = bool
-  description = "Whether to enable the creation of context-based restriction rules and zones in the module. Default is false."
+  description = "Set to `true` to create context-based restriction rules and zones in the module. The default is 'false'."
   default     = false
 }
 
 variable "cbr_prefix" {
   type        = string
-  description = "String to use as the prefix for all context-based restriction resources, default is `account-infra-base` if `provision_cbr` is set to true."
+  description = "String to use as the prefix for all context-based restriction resources, default is `account-infra-base` if `provision_cbr` is set to `true`."
   default     = "acct-infra-base"
 }
 
 variable "cbr_allow_cos_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Object Storage to access the key management service. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Object Storage access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_block_storage_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Block Storage for VPC to access the key management service. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Block Storage for VPC access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_roks_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Red Hat OpenShift to access the key management service. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Red Hat OpenShift access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_icd_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows IBM cloud databases to access the key management service. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow IBM Cloud databases access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_event_streams_to_kms" {
   type        = bool
-  description = "Whether to enable the rule that allows Event Streams to access the key management service. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Event Streams access to the key management service. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_container_registry" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to access Container Registry. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Virtual Private Clouds access to the Container Registry. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_cos" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to access Object Storage. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allows Virtual Private Clouds access to Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_iam_groups" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to access IAM groups. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allows Virtual Private Clouds access to IAM groups. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_vpcs_to_iam_access_management" {
   type        = bool
-  description = "Whether to enable the rule that allows Virtual Private Clouds to IAM access management. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Virtual Private Clouds access to IAM access management. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_at_to_cos" {
   type        = bool
-  description = "Whether to enable the rule that allows Activity Tracker to access Object Storage. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Activity Tracker Event Routing access to Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_iks_to_is" {
   type        = bool
-  description = "Whether to enable the rule that allows the Kubernetes Service to access VPC Infrastructure Services. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow the Kubernetes service access to Virtual Private Cloud Infrastructure Services. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_is_to_cos" {
   type        = bool
-  description = "Whether to enable the rule that allows VPC Infrastructure Services to access Object Storage. Default is true if `provision_cbr` is set to true."
+  description = "Set to `true` to allow Virtual Private Cloud Infrastructure Services access to Object Storage. Default is `true` if `provision_cbr` is set to `true`."
   default     = true
 }
 
 variable "cbr_allow_scc_to_cos" {
   type        = bool
-  description = "Set rule for SCC (Security and Compliance Center) to COS. Default is true if `provision_cbr` is true."
+  description = "Set to `true` to allow Security and Compliance Center access to Object Storage. Default is `true` if `provision_cbr` is `true`."
   default     = true
 }
 
 variable "cbr_kms_service_targeted_by_prewired_rules" {
   type        = list(string)
-  description = "IBM Cloud offers two distinct Key Management Services (KMS): Key Protect and Hyper Protect Crypto Services (HPCS). This variable determines the specific KMS service to which the pre-configured rules are applied. Use the value 'key-protect' to specify the Key Protect service, and 'hs-crypto' for the Hyper Protect Crypto Services (HPCS). Default is `[\"hs-crypto\"]` if `provision_cbr` is set to true."
+  description = "IBM Cloud offers two distinct key management services: Key Protect and Hyper Protect Crypto Services. This variable determines the specific key management service to which the pre-configured rules are applied. Use the value 'key-protect' to specify the Key Protect service, and 'hs-crypto' for Hyper Protect Crypto Services. Default is `[\"hs-crypto\"]` if `provision_cbr` is set to `true`."
   default     = ["hs-crypto"]
 }
 
