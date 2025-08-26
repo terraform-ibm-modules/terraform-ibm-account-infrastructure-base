@@ -178,7 +178,8 @@ module "trusted_profile_projects" {
   trusted_profile_name        = var.trusted_profile_name
   trusted_profile_description = var.trusted_profile_description
   trusted_profile_policies = [{
-    roles = var.trusted_profile_roles
+    unique_identifier = var.trusted_profile_unique_identifier
+    roles             = var.trusted_profile_roles
     resources = [{
       service = "project"
     }]

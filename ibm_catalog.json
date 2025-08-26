@@ -284,6 +284,9 @@
               "key": "provision_trusted_profile_projects"
             },
             {
+              "key": "trusted_profile_unique_identifier"
+            },
+            {
               "key": "trusted_profile_name"
             },
             {
@@ -441,6 +444,10 @@
             {
               "key": "provision_trusted_profile_projects",
               "default_value": false,
+              "hidden": true
+            },
+            {
+              "key": "trusted_profile_unique_identifier",
               "hidden": true
             },
             {
