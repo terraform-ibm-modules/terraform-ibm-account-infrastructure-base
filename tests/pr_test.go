@@ -85,7 +85,7 @@ func TestRunRGOnlyDA(t *testing.T) {
 		{Name: "provision_cbr", Value: false, DataType: "string"},
 		{Name: "skip_iam_account_settings", Value: true, DataType: "string"},
 		{Name: "provision_trusted_profile_projects", Value: false, DataType: "string"},
-		{Name: "global_resource_group_name", Value: "global", DataType: "string"},
+		{Name: "single_resource_group_name", Value: "global", DataType: "string"},
 	}
 
 	err := options.RunSchematicTest()
