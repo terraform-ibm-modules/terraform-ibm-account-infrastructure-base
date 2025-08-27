@@ -207,7 +207,7 @@ module "account_infrastructure_base" {
   user_mfa_reset               = var.user_mfa_reset
 
   # trusted profile
-  trusted_profile_unique_identifier  = var.trusted_profile_unique_identifier == null ? try("${var.prefix}-trusted-profile-0", "projects-trusted-profile-0") : var.trusted_profile_unique_identifier
+  trusted_profile_unique_identifier  = try("${var.prefix}-trusted-profile-0", "projects-trusted-profile-0")
   trusted_profile_name               = var.trusted_profile_name == null ? try("${var.prefix}-trusted-profile", "projects-trusted-profile") : var.trusted_profile_name
   provision_trusted_profile_projects = var.provision_trusted_profile_projects
   trusted_profile_description        = var.trusted_profile_description
