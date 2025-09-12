@@ -14,6 +14,7 @@ Global variables
 */
 const solutionDir = "solutions/fully-configurable"
 const terraformVersion = "terraform_v1.10" // This should match the version in the ibm_catalog.json
+var tags = []string{"test-schematic", "account-infra-base"}
 
 /*
 Common setup options
@@ -24,7 +25,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testschematic.TestSc
 		TarIncludePatterns:     []string{"*.tf", fmt.Sprintf("%s/*.tf", solutionDir)},
 		TemplateFolder:         solutionDir,
 		Prefix:                 prefix,
-		Tags:                   []string{"test-schematic", "account-infra-base"},
+		Tags:                   tags,
 		DeleteWorkspaceOnFail:  false,
 		WaitJobCompleteMinutes: 30,
 		TerraformVersion:       terraformVersion,
@@ -80,7 +81,7 @@ func TestRunRGOnlyDA(t *testing.T) {
 		TemplateFolder:         solutionDir,
 		Prefix:                 "rgonly",
 		Region:                 "us-east",
-		Tags:                   []string{"test-schematic"},
+		Tags:                   tags,
 		DeleteWorkspaceOnFail:  false,
 		WaitJobCompleteMinutes: 30,
 		TerraformVersion:       terraformVersion,
