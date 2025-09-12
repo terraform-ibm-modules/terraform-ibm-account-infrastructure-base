@@ -13,7 +13,7 @@ import (
 Global variables
 */
 const solutionDir = "solutions/fully-configurable"
-const terraformVersion = "1.10.5" // This should match the version in the ibm_catalog.json
+const terraformVersion = "terraform_v1.10" // This should match the version in the ibm_catalog.json
 
 /*
 Common setup options
