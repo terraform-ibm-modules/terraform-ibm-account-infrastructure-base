@@ -21,14 +21,15 @@ Common setup options
 */
 func setupOptions(t *testing.T, prefix string, dir string) *testschematic.TestSchematicOptions {
 	options := testschematic.TestSchematicOptionsDefault(&testschematic.TestSchematicOptions{
-		Testing:                t,
-		TarIncludePatterns:     []string{"*.tf", fmt.Sprintf("%s/*.tf", solutionDir)},
-		TemplateFolder:         solutionDir,
-		Prefix:                 prefix,
-		Tags:                   tags,
-		DeleteWorkspaceOnFail:  false,
-		WaitJobCompleteMinutes: 30,
-		TerraformVersion:       terraformVersion,
+		Testing:                    t,
+		TarIncludePatterns:         []string{"*.tf", fmt.Sprintf("%s/*.tf", solutionDir)},
+		TemplateFolder:             solutionDir,
+		Prefix:                     prefix,
+		Tags:                       tags,
+		DeleteWorkspaceOnFail:      false,
+		WaitJobCompleteMinutes:     30,
+		TerraformVersion:           terraformVersion,
+		CheckApplyResultForUpgrade: true, // Set to true to test the actual terraform apply upgrade
 	})
 
 	options.TerraformVars = []testschematic.TestSchematicTerraformVar{
