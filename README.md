@@ -89,10 +89,10 @@ You need the following permissions to run this module.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_account_settings"></a> [account\_settings](#module\_account\_settings) | terraform-ibm-modules/iam-account-settings/ibm | 2.12.0 |
-| <a name="module_cbr_fscloud"></a> [cbr\_fscloud](#module\_cbr\_fscloud) | terraform-ibm-modules/cbr/ibm//modules/fscloud | 1.32.6 |
+| <a name="module_cbr_fscloud"></a> [cbr\_fscloud](#module\_cbr\_fscloud) | terraform-ibm-modules/cbr/ibm//modules/fscloud | 1.33.0 |
 | <a name="module_existing_resource_group"></a> [existing\_resource\_group](#module\_existing\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.3.0 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.3.0 |
-| <a name="module_trusted_profile_projects"></a> [trusted\_profile\_projects](#module\_trusted\_profile\_projects) | terraform-ibm-modules/trusted-profile/ibm | 2.3.1 |
+| <a name="module_trusted_profile_projects"></a> [trusted\_profile\_projects](#module\_trusted\_profile\_projects) | terraform-ibm-modules/trusted-profile/ibm | 3.1.1 |
 
 ### Resources
 
@@ -144,6 +144,7 @@ No resources.
 | <a name="input_trusted_profile_description"></a> [trusted\_profile\_description](#input\_trusted\_profile\_description) | Description of the trusted profile. | `string` | `"Trusted profile that authorizes the project to deploy to your target account."` | no |
 | <a name="input_trusted_profile_name"></a> [trusted\_profile\_name](#input\_trusted\_profile\_name) | Name of the trusted profile, required if `provision_trusted_profile_projects` is set to `true`. | `string` | `null` | no |
 | <a name="input_trusted_profile_roles"></a> [trusted\_profile\_roles](#input\_trusted\_profile\_roles) | List of roles given to the trusted profile. | `list(string)` | <pre>[<br/>  "Administrator"<br/>]</pre> | no |
+| <a name="input_trusted_profile_unique_identifier"></a> [trusted\_profile\_unique\_identifier](#input\_trusted\_profile\_unique\_identifier) | Unique string for the trusted profile policy, required if `provision_trusted_profile_projects` is set to `true`. NOTE: The `trusted_profile_unique_identifier` variable is only used by terraform for building map objects, it is not use for any actual resource naming. Changing this value will cause resources to be recreated. | `string` | `null` | no |
 | <a name="input_use_existing_audit_resource_group"></a> [use\_existing\_audit\_resource\_group](#input\_use\_existing\_audit\_resource\_group) | Set to `true` to use an existing resource group that has the name provided in `audit_resource_group_name`. | `bool` | `false` | no |
 | <a name="input_use_existing_devops_resource_group"></a> [use\_existing\_devops\_resource\_group](#input\_use\_existing\_devops\_resource\_group) | Set to `true` to use an existing resource group that has the name provided in `devops_resource_group_name`. | `bool` | `false` | no |
 | <a name="input_use_existing_edge_resource_group"></a> [use\_existing\_edge\_resource\_group](#input\_use\_existing\_edge\_resource\_group) | Set to `true` to use an existing resource group that has the name provided in `edge_resource_group_name`. | `bool` | `false` | no |
