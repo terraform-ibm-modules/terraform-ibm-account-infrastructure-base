@@ -7,7 +7,7 @@ This deployable architecture is **typically consumed as a dependency** by other 
 You can choose from two variations when deploying:
 
 * **Resource groups only**: Creates a structured set of IBM Cloud resource groups to help organize cloud resources by function.
-* **Resource groups with Account Settings**: In addition to resource groups, configures account-level settings for security, compliance, and session management.
+* **Resource groups with Account Settings**: In addition to resource groups, this deployment configures account-level settings for security, compliance, and session management.
 
 ---
 

@@ -2,7 +2,7 @@
 
 This **Deployable Architecture** is typically consumed as a dependency by other architectures. It provides a structured set of IBM Cloud resource‑group options to help you organise workloads and apply governance at scale.
 
-The deployable architecture supports multiple ways to define your resource‑group layout—from a single default group to a more opinionated structure for improved separation of duties and resource organization.
+This deployment architecture helps define resource group layouts in multiple ways—ranging from a single default group to a more structured, opinionated setup. These layout definitions support separation of duties by decoupling resource organization from role-based responsibilities.
 
 For more more details and best practices for organizing resources, see the [IBM Cloud documentation](https://cloud.ibm.com/docs/account?topic=account-account_setup).
 
