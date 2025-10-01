@@ -7,7 +7,7 @@ This deployable architecture is **typically consumed as a dependency** by other 
 You can choose from two variations when deploying:
 
 * **Resource groups only**: Creates a structured set of IBM Cloud resource groups to help organize cloud resources by function.
-* **Resource groups with Account Settings**: In addition to resource groups, configures account-level settings for access control, security, and compliance alignment.
+* **Resource groups with Account Settings**: In addition to resource groups, this deployment configures account-level settings for security, compliance, and session management.
 
 ---
 
@@ -16,7 +16,7 @@ You can choose from two variations when deploying:
 IBM Cloud uses Resource Groups to help organize and manage your cloud resources, similar to folders on your computer.
 For more details on resource groups, see the [IBM Cloud documentation](https://cloud.ibm.com/docs/account?topic=account-account_setup).
 
-It provisions an opinionated structure of labeled resource groups for clearer separation of responsibilities and improved access control.
+It provisions an opinionated structure of labeled resource groups for clearer separation of responsibilities and improved resource organization.
 
 | Category      | Default Resource Group Name | Suggested Use Case                                                          |
 | ------------- | --------------------------- | --------------------------------------------------------------------------- |
@@ -36,7 +36,7 @@ It provisions an opinionated structure of labeled resource groups for clearer se
 
 ---
 
-## Account Settings – Enhancing Security, Access Control, and Compliance
+## Account Settings – Enhancing Security, Session Management, and Compliance
 
 All account settings applied by this deployable architecture can be customized through input parameters in the deployable architecture interface (DA). This includes options for session timeout values, trusted profile names, and context-based restrictions (CBR) configuration.
 For more details on the folliung topics see the IBM Cloud documentation:
