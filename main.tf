@@ -188,7 +188,7 @@ module "trusted_profile_projects" {
 module "cbr_fscloud" {
   count                                  = var.provision_cbr ? 1 : 0
   source                                 = "terraform-ibm-modules/cbr/ibm//modules/fscloud"
-  version                                = "1.32.6"
+  version                                = "1.33.5"
   prefix                                 = var.cbr_prefix
   zone_vpc_crn_list                      = []
   allow_cos_to_kms                       = var.cbr_allow_cos_to_kms
@@ -204,6 +204,9 @@ module "cbr_fscloud" {
   allow_scc_to_cos                       = var.cbr_allow_scc_to_cos
   allow_vpcs_to_iam_groups               = var.cbr_allow_vpcs_to_iam_groups
   allow_vpcs_to_iam_access_management    = var.cbr_allow_vpcs_to_iam_access_management
+  allow_scc_wp_to_appconfig              = var.allow_scc_wp_to_appconfig
+  allow_scc_wp_to_cloud_monitoring       = var.allow_scc_wp_to_cloud_monitoring
+  appconfig_aggregator_service_access    = var.appconfig_aggregator_service_access
   kms_service_targeted_by_prewired_rules = var.cbr_kms_service_targeted_by_prewired_rules
   target_service_details                 = var.cbr_target_service_details
 }
