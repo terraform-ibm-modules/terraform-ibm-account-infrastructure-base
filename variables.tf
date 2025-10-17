@@ -385,14 +385,14 @@ variable "cbr_target_service_details" {
   default     = {}
 }
 
-variable "allow_scc_wp_to_appconfig" {
-  description = "Set rule for (SCC-WP) Security and Compliance Center Workload Protection to App Configuration, default is true"
+variable "cbr_allow_scc_wp_to_appconfig" {
+  description = "Set to `true` to allow Security and Compliance Center access to App Configuration. Default is `true` if `provision_cbr` is `true`."
   type        = bool
   default     = true
 }
 
-variable "allow_scc_wp_to_cloud_monitoring" {
-  description = "Set rule for (SCC-WP) Security and Compliance Center Workload Protection to Cloud Monitoring, default is true"
+variable "cbr_allow_scc_wp_to_cloud_monitoring" {
+  description = "Set to `true` to allow Security and Compliance Center access to Cloud Monitoring. Default is `true` if `provision_cbr` is `true`."
   type        = bool
   default     = true
 }

@@ -204,8 +204,8 @@ module "cbr_fscloud" {
   allow_scc_to_cos                       = var.cbr_allow_scc_to_cos
   allow_vpcs_to_iam_groups               = var.cbr_allow_vpcs_to_iam_groups
   allow_vpcs_to_iam_access_management    = var.cbr_allow_vpcs_to_iam_access_management
-  allow_scc_wp_to_appconfig              = var.allow_scc_wp_to_appconfig
-  allow_scc_wp_to_cloud_monitoring       = var.allow_scc_wp_to_cloud_monitoring
+  allow_scc_wp_to_appconfig              = var.cbr_allow_scc_wp_to_appconfig
+  allow_scc_wp_to_cloud_monitoring       = var.cbr_allow_scc_wp_to_cloud_monitoring
   appconfig_aggregator_service_access    = var.appconfig_aggregator_service_access
   kms_service_targeted_by_prewired_rules = var.cbr_kms_service_targeted_by_prewired_rules
   target_service_details                 = var.cbr_target_service_details
