@@ -1,6 +1,6 @@
 # Account Settings Configuration
 
-This document provides detailed guidance on how to customize the IBM Cloud **Account Settings** when using **Cloud automation for Account Configuration**. These settings enhance security, access control, and compliance alignment across your IBM Cloud account.
+This document offers guidance on customizing the IBM Cloud Account Settings within the Cloud automation for Account Configuration. You will learn to configure these settings to enhance security, optimize session management and align compliance across your account.
 
 Account settings are applied when you choose the **Resource groups with Account Settings** variation.
 
