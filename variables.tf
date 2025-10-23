@@ -384,3 +384,41 @@ variable "cbr_target_service_details" {
   description = "Details of the target service for which a rule is created. The key is the service name."
   default     = {}
 }
+
+variable "cbr_allow_scc_wp_to_appconfig" {
+  description = "Set to `true` to allow Security and Compliance Center access to App Configuration. Default is `true` if `provision_cbr` is `true`."
+  type        = bool
+  default     = true
+}
+
+variable "cbr_allow_scc_wp_to_cloud_monitoring" {
+  description = "Set to `true` to allow Security and Compliance Center access to Cloud Monitoring. Default is `true` if `provision_cbr` is `true`."
+  type        = bool
+  default     = true
+}
+
+variable "appconfig_aggregator_service_access" {
+  description = "Set rule for App Configuration to a list of services supported by the configuration aggregator. The default is true. The full list of services can be found [here](https://cloud.ibm.com/docs/app-configuration?topic=app-configuration-ac-configuration-aggregator#ac-list-of-services-configaggregator). However, CBR rules will only be created for the CBR-supported services. Service references in the CBR zone are not supported for databases."
+  type        = map(bool)
+  default = {
+    cloud-object-storage     = true
+    is                       = true
+    secrets-manager          = true
+    IAM                      = true
+    kms                      = true
+    container-registry       = true
+    codeengine               = true
+    dns-svcs                 = true
+    messagehub               = true
+    transit                  = true
+    schematics               = true
+    sysdig-monitor           = true
+    sysdig-secure            = true
+    hs-crypto                = true
+    apprapp                  = true
+    globalcatalog-collection = true
+    event-notifications      = true
+    atracker                 = true
+    logs                     = true
+  }
+}
