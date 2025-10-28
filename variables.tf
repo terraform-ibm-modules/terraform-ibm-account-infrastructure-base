@@ -247,17 +247,6 @@ variable "provision_trusted_profile_projects" {
   default     = true
 }
 
-variable "trusted_profile_unique_identifier" {
-  type        = string
-  description = "Unique string for the trusted profile policy, required if `provision_trusted_profile_projects` is set to `true`. NOTE: The `trusted_profile_unique_identifier` variable is only used by terraform for building map objects, it is not use for any actual resource naming. Changing this value will cause resources to be recreated."
-  default     = null
-
-  validation {
-    condition     = !var.provision_trusted_profile_projects || var.trusted_profile_unique_identifier != null
-    error_message = "`trusted_profile_unique_identifier` is required if `provision_trusted_profile_projects` is set to `true`."
-  }
-}
-
 variable "trusted_profile_name" {
   type        = string
   description = "Name of the trusted profile, required if `provision_trusted_profile_projects` is set to `true`."

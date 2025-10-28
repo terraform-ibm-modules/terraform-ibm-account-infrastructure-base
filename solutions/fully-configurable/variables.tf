@@ -243,7 +243,7 @@ variable "provision_trusted_profile_projects" {
 
 variable "trusted_profile_name" {
   type        = string
-  description = "The name of the trusted profile."
+  description = "The name of the trusted profile. Required if `provision_trusted_profile_projects` is true."
   default     = null
 }
 
