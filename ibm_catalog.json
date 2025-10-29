@@ -327,7 +327,7 @@
               }
             }
           ],
-          "terraform_version": "1.10.5"
+          "terraform_version": "1.12.2"
         },
         {
           "label": "Resource groups only",
@@ -539,7 +539,7 @@
               ]
             }
           ],
-          "terraform_version": "1.10.5"
+          "terraform_version": "1.12.2"
         }
       ]
     }
