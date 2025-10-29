@@ -174,11 +174,12 @@ moved {
 module "trusted_profile_projects" {
   count                       = var.provision_trusted_profile_projects ? 1 : 0
   source                      = "terraform-ibm-modules/trusted-profile/ibm"
-  version                     = "2.3.1"
+  version                     = "3.1.1"
   trusted_profile_name        = var.trusted_profile_name
   trusted_profile_description = var.trusted_profile_description
   trusted_profile_policies = [{
-    roles = var.trusted_profile_roles
+    unique_identifier = "${var.trusted_profile_name}-0"
+    roles             = var.trusted_profile_roles
     resources = [{
       service = "project"
     }]
