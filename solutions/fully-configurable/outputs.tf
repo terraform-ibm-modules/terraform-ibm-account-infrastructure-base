@@ -183,7 +183,7 @@ output "cbr_map_vpc_zoneid" {
 }
 
 output "next_steps_text" {
-  value       = "You can now manage your resource groups using IAM access control."
+  value       = "You can now manage resources within a resource group and control access using IAM settings."
   description = "Next steps text"
 }
 
