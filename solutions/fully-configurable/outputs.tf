@@ -188,12 +188,12 @@ output "next_steps_text" {
 }
 
 output "next_step_primary_label" {
-  value       = "View Resource Groups"
+  value       = "Manage Resource Groups"
   description = "Primary label"
 }
 
 output "next_step_primary_url" {
-  value       = "https://cloud.ibm.com/account/resource-groups"
+  value       = "https://cloud.ibm.com/docs/account?topic=account-rgs&interface=ui"
   description = "Primary URL"
 }
 
