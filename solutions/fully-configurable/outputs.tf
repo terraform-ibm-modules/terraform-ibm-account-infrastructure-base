@@ -188,17 +188,17 @@ output "next_steps_text" {
 }
 
 output "next_step_primary_label" {
-  value       = "Manage Resource Groups"
+  value       = "Learn more about resource groups"
   description = "Primary label"
 }
 
 output "next_step_primary_url" {
-  value       = "https://cloud.ibm.com/docs/account?topic=account-rgs&interface=ui"
+  value       = "https://cloud.ibm.com/docs/account?topic=account-rgs"
   description = "Primary URL"
 }
 
 output "next_step_secondary_label" {
-  value       = "Learn more about Identity and Access Management(IAM)"
+  value       = "Learn more about Identity and Access Management"
   description = "Secondary label"
 }
 
