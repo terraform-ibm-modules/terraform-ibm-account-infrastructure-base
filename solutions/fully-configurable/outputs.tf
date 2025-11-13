@@ -181,3 +181,28 @@ output "cbr_map_vpc_zoneid" {
   value       = module.account_infrastructure_base.cbr_map_vpc_zoneid
   description = "Map of VPC and zone id"
 }
+
+output "next_steps_text" {
+  value       = "You can now manage resources within a resource group and control access using IAM settings."
+  description = "Next steps text"
+}
+
+output "next_step_primary_label" {
+  value       = "Learn more about resource groups"
+  description = "Primary label"
+}
+
+output "next_step_primary_url" {
+  value       = "https://cloud.ibm.com/docs/account?topic=account-rgs"
+  description = "Primary URL"
+}
+
+output "next_step_secondary_label" {
+  value       = "Learn more about Identity and Access Management"
+  description = "Secondary label"
+}
+
+output "next_step_secondary_url" {
+  value       = "https://cloud.ibm.com/docs/account?topic=account-iamoverview"
+  description = "Secondary URL"
+}
