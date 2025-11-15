@@ -174,7 +174,7 @@ moved {
 module "trusted_profile_projects" {
   count                       = var.provision_trusted_profile_projects ? 1 : 0
   source                      = "terraform-ibm-modules/trusted-profile/ibm"
-  version                     = "3.1.1"
+  version                     = "3.2.0"
   trusted_profile_name        = var.trusted_profile_name
   trusted_profile_description = var.trusted_profile_description
   trusted_profile_policies = [{
@@ -189,7 +189,7 @@ module "trusted_profile_projects" {
 module "cbr_fscloud" {
   count                                  = var.provision_cbr ? 1 : 0
   source                                 = "terraform-ibm-modules/cbr/ibm//modules/fscloud"
-  version                                = "1.33.8"
+  version                                = "1.34.0"
   prefix                                 = var.cbr_prefix
   zone_vpc_crn_list                      = []
   allow_cos_to_kms                       = var.cbr_allow_cos_to_kms
