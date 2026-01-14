@@ -54,6 +54,7 @@
         {
           "label": "Resource groups with account settings",
           "name": "resource-groups-with-account-settings",
+          "short_description": "Ideal for users who want flexibility with a reliable starting point.",
           "index": 1,
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
@@ -338,6 +339,7 @@
         {
           "label": "Resource groups only",
           "name": "resource-group-only",
+          "short_description": "Ideal for users who want flexibility with a reliable starting point.",
           "index": 2,
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
