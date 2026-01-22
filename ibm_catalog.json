@@ -24,7 +24,6 @@
       "short_description": "Creates and configures basic settings for an IBM Cloud account",
       "long_description": "This deployable architecture creates and configures the foundational settings for an IBM Cloud account. This includes IAM account settings, a trusted profile and associated access groups, and the resource groups in which all resources are provisioned. [Learn more](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/docs/about.md). \n\nLeverage [Terraform IBM Modules](https://github.com/terraform-ibm-modules) to shape and scale your solutions. You can integrate Terraform IBM Modules (TIM) to extend functionality and design a solution tailored to your environment and operations needs. These modules offer reusable, customizable elements that follow IBM Cloud's recommended practices. You can access the [source code and documentation](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base) and use it to extend your current architecture or create new solutions.\n\nTo deploy this architecture you can choose one of the below variations:\n- **Resource groups only**: Creates a structured set of IBM Cloud resource groups to help organize cloud resources by function. [Learn more](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/docs/resource-group-configuration.md).\n- **Resource groups with Account Settings**: In addition to resource groups, this variation configures account-level settings for security, compliance, and session management. [Learn more](https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/docs/account-settings-configuration.md).",
       "offering_docs_url": "https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim",
-      "release_notes_url": "https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/releases",
       "offering_icon_url": "https://raw.githubusercontent.com/terraform-ibm-modules/documentation/main/icons/security_icon.svg",
       "provider_name": "IBM",
       "features": [
@@ -58,6 +57,7 @@
           "index": 1,
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
+          "release_notes_url": "https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/releases",
           "iam_permissions": [
             {
               "role_crns": [
@@ -343,6 +343,7 @@
           "index": 2,
           "install_type": "fullstack",
           "working_directory": "solutions/fully-configurable",
+          "release_notes_url": "https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/releases",
           "iam_permissions": [
             {
               "role_crns": [
