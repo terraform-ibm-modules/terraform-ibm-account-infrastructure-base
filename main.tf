@@ -148,7 +148,7 @@ moved {
 module "account_settings" {
   count                        = !var.skip_iam_account_settings ? 1 : 0
   source                       = "terraform-ibm-modules/iam-account-settings/ibm"
-  version                      = "2.12.25"
+  version                      = "2.12.26"
   access_token_expiration      = var.access_token_expiration
   active_session_timeout       = var.active_session_timeout
   allowed_ip_addresses         = var.allowed_ip_addresses
@@ -189,7 +189,7 @@ module "trusted_profile_projects" {
 module "cbr_fscloud" {
   count                                  = var.provision_cbr ? 1 : 0
   source                                 = "terraform-ibm-modules/cbr/ibm//modules/fscloud"
-  version                                = "1.35.10"
+  version                                = "1.35.11"
   prefix                                 = var.cbr_prefix
   zone_vpc_crn_list                      = []
   allow_cos_to_kms                       = var.cbr_allow_cos_to_kms
