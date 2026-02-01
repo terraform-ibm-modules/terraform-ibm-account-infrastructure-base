@@ -148,7 +148,7 @@ moved {
 module "account_settings" {
   count                        = !var.skip_iam_account_settings ? 1 : 0
   source                       = "terraform-ibm-modules/iam-account-settings/ibm"
-  version                      = "2.12.28"
+  version                      = "2.12.29"
   access_token_expiration      = var.access_token_expiration
   active_session_timeout       = var.active_session_timeout
   allowed_ip_addresses         = var.allowed_ip_addresses
