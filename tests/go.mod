@@ -2,11 +2,11 @@ module github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-bas
 
 go 1.25.5
 
-toolchain go1.25.6
+toolchain go1.26.0
 
 require (
 	github.com/stretchr/testify v1.11.1
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.68.1
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.69.0
 )
 
 require (
