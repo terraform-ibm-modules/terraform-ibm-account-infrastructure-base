@@ -9,7 +9,7 @@ variable "single_resource_group_name" {
 
   validation {
     condition     = var.single_resource_group_name == null || (var.single_resource_group_name != "" && length(var.single_resource_group_name) <= 40)
-    error_message = "`single_resource_group_name` must be 1-40 characters long (null allowed)."
+    error_message = "`single_resource_group_name` must be 1-40 characters long."
   }
 }
 
