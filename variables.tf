@@ -25,8 +25,8 @@ variable "security_resource_group_name" {
   default     = "security-rg"
 
   validation {
-    condition     = length(coalesce(var.security_resource_group_name, "null")) <= 40
-    error_message = "`security_resource_group_name` must be 40 characters or less."
+    condition     = var.security_resource_group_name == null || (var.security_resource_group_name != "" && length(var.security_resource_group_name) <= 40)
+    error_message = "`security_resource_group_name` must be 1-40 characters long."
   }
 }
 
