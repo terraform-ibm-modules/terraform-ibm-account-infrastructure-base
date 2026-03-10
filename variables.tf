@@ -8,8 +8,8 @@ variable "single_resource_group_name" {
   default     = null
 
   validation {
-    condition     = length(coalesce(var.single_resource_group_name, "null")) <= 40
-    error_message = "`single_resource_group_name` must be 40 characters or less."
+    condition     = var.single_resource_group_name == null || (var.single_resource_group_name != "" && length(var.single_resource_group_name) <= 40)
+    error_message = "`single_resource_group_name` must be 1-40 characters long."
   }
 }
 
@@ -25,8 +25,8 @@ variable "security_resource_group_name" {
   default     = "security-rg"
 
   validation {
-    condition     = length(coalesce(var.security_resource_group_name, "null")) <= 40
-    error_message = "`security_resource_group_name` must be 40 characters or less."
+    condition     = var.security_resource_group_name == null || (var.security_resource_group_name != "" && length(var.security_resource_group_name) <= 40)
+    error_message = "`security_resource_group_name` must be 1-40 characters long."
   }
 }
 
@@ -42,8 +42,8 @@ variable "audit_resource_group_name" {
   default     = "audit-rg"
 
   validation {
-    condition     = length(coalesce(var.audit_resource_group_name, "null")) <= 40
-    error_message = "`audit_resource_group_name` must be 40 characters or less."
+    condition     = var.audit_resource_group_name == null || (var.audit_resource_group_name != "" && length(var.audit_resource_group_name) <= 40)
+    error_message = "`audit_resource_group_name` must be 1-40 characters long."
   }
 }
 
@@ -59,8 +59,8 @@ variable "observability_resource_group_name" {
   default     = "observability-rg"
 
   validation {
-    condition     = length(coalesce(var.observability_resource_group_name, "null")) <= 40
-    error_message = "`observability_resource_group_name` must be 40 characters or less."
+    condition     = var.observability_resource_group_name == null || (var.observability_resource_group_name != "" && length(var.observability_resource_group_name) <= 40)
+    error_message = "`observability_resource_group_name` must be 1-40 characters long."
   }
 }
 
@@ -76,8 +76,8 @@ variable "management_resource_group_name" {
   default     = "management-plane-rg"
 
   validation {
-    condition     = length(coalesce(var.management_resource_group_name, "null")) <= 40
-    error_message = "`management_resource_group_name` must be 40 characters or less."
+    condition     = var.management_resource_group_name == null || (var.management_resource_group_name != "" && length(var.management_resource_group_name) <= 40)
+    error_message = "`management_resource_group_name` must be 1-40 characters long."
   }
 }
 
@@ -93,8 +93,8 @@ variable "workload_resource_group_name" {
   default     = "workload-rg"
 
   validation {
-    condition     = length(coalesce(var.workload_resource_group_name, "null")) <= 40
-    error_message = "`workload_resource_group_name` must be 40 characters or less."
+    condition     = var.workload_resource_group_name == null || (var.workload_resource_group_name != "" && length(var.workload_resource_group_name) <= 40)
+    error_message = "`workload_resource_group_name` must be 1-40 characters long."
   }
 }
 
@@ -110,8 +110,8 @@ variable "edge_resource_group_name" {
   default     = "edge-rg"
 
   validation {
-    condition     = length(coalesce(var.edge_resource_group_name, "null")) <= 40
-    error_message = "`edge_resource_group_name` must be 40 characters or less."
+    condition     = var.edge_resource_group_name == null || (var.edge_resource_group_name != "" && length(var.edge_resource_group_name) <= 40)
+    error_message = "`edge_resource_group_name` must be 1-40 characters long."
   }
 }
 
@@ -127,8 +127,8 @@ variable "devops_resource_group_name" {
   default     = "devops-tools-rg"
 
   validation {
-    condition     = length(coalesce(var.devops_resource_group_name, "null")) <= 40
-    error_message = "`devops_resource_group_name` must be 40 characters or less."
+    condition     = var.devops_resource_group_name == null || (var.devops_resource_group_name != "" && length(var.devops_resource_group_name) <= 40)
+    error_message = "`devops_resource_group_name` must be 1-40 characters long."
   }
 }
 
