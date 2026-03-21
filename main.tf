@@ -124,7 +124,7 @@ locals {
 module "resource_group" {
   for_each            = local.rg_map
   source              = "terraform-ibm-modules/resource-group/ibm"
-  version             = "1.4.8"
+  version             = "1.5.0"
   resource_group_name = each.key
 }
 
@@ -136,7 +136,7 @@ moved {
 module "existing_resource_group" {
   for_each                     = local.existing_rg_map
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.4.8"
+  version                      = "1.5.0"
   existing_resource_group_name = each.key
 }
 
@@ -148,7 +148,7 @@ moved {
 module "account_settings" {
   count                        = !var.skip_iam_account_settings ? 1 : 0
   source                       = "terraform-ibm-modules/iam-account-settings/ibm"
-  version                      = "2.12.36"
+  version                      = "2.12.37"
   access_token_expiration      = var.access_token_expiration
   active_session_timeout       = var.active_session_timeout
   allowed_ip_addresses         = var.allowed_ip_addresses
