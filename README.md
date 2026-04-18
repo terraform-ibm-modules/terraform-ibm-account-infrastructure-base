@@ -96,8 +96,8 @@ You need the following permissions to run this module.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_account_settings"></a> [account\_settings](#module\_account\_settings) | terraform-ibm-modules/iam-account-settings/ibm | 2.13.0 |
-| <a name="module_cbr_fscloud"></a> [cbr\_fscloud](#module\_cbr\_fscloud) | terraform-ibm-modules/cbr/ibm//modules/fscloud | 1.36.1 |
+| <a name="module_account_settings"></a> [account\_settings](#module\_account\_settings) | terraform-ibm-modules/iam-account-settings/ibm | 2.13.1 |
+| <a name="module_cbr_fscloud"></a> [cbr\_fscloud](#module\_cbr\_fscloud) | terraform-ibm-modules/cbr/ibm//modules/fscloud | 1.36.2 |
 | <a name="module_existing_resource_group"></a> [existing\_resource\_group](#module\_existing\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.6.0 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.6.0 |
 | <a name="module_trusted_profile_projects"></a> [trusted\_profile\_projects](#module\_trusted\_profile\_projects) | terraform-ibm-modules/trusted-profile/ibm | 4.0.0 |
