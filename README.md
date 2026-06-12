@@ -23,9 +23,9 @@ This module is a general base layer module for setting up a newly provisioned ac
 ## Overview
 <ul>
   <li><a href="#terraform-ibm-account-infrastructure-base">terraform-ibm-account-infrastructure-base</a></li>
-  <li><a href="./solutions">Deployable Architectures</a>
+  <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/solutions">Deployable Architectures</a>
     <ul>
-      <li><a href="./solutions/fully-configurable">Cloud Automation for Account Configuration</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-account-infrastructure-base/tree/main/solutions/fully-configurable">Cloud Automation for Account Configuration</a></li>
     </ul>
   </li>
   <li><a href="#contributing">Contributing</a></li>
