@@ -414,7 +414,6 @@ variable "appconfig_aggregator_service_access" {
     schematics               = true
     sysdig-monitor           = true
     sysdig-secure            = true
-    hs-crypto                = true
     apprapp                  = true
     globalcatalog-collection = true
     event-notifications      = true
