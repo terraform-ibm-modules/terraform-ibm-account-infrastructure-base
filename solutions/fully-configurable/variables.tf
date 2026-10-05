@@ -273,6 +273,6 @@ variable "cbr_enforcement_mode" {
 
 variable "cbr_kms_service_targeted_by_prewired_rules" {
   type        = list(string)
-  description = "IBM Cloud offers two distinct Key Management Services (KMS): Key Protect and Hyper Protect Crypto Services (HPCS). This variable determines the specific KMS service to which the pre-configured rules are applied. Use the value 'key-protect' to specify the Key Protect service, and 'hs-crypto' for the Hyper Protect Crypto Services (HPCS). Default is `[\"hs-crypto\"]` if `provision_cbr` is true."
-  default     = ["hs-crypto"]
+  description = "This variable determines the specific KMS service to which the pre-configured rules are applied. Use the value 'key-protect' to specify the Key Protect service. Default is `[\"key-protect\"]` if `provision_cbr` is true."
+  default     = ["key-protect"]
 }
