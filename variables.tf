@@ -366,8 +366,8 @@ variable "cbr_allow_scc_to_cos" {
 
 variable "cbr_kms_service_targeted_by_prewired_rules" {
   type        = list(string)
-  description = "IBM Cloud offers two distinct key management services: Key Protect and Hyper Protect Crypto Services. This variable determines the specific key management service to which the pre-configured rules are applied. Use the value 'key-protect' to specify the Key Protect service, and 'hs-crypto' for Hyper Protect Crypto Services. Default is `[\"hs-crypto\"]` if `provision_cbr` is set to `true`."
-  default     = ["hs-crypto"]
+  description = "This variable determines the specific key management service to which the pre-configured rules are applied. Use the value 'key-protect' to specify the Key Protect service. Default is `[\"key-protect\"]` if `provision_cbr` is set to `true`."
+  default     = ["key-protect"]
 }
 
 variable "cbr_target_service_details" {
@@ -414,7 +414,6 @@ variable "appconfig_aggregator_service_access" {
     schematics               = true
     sysdig-monitor           = true
     sysdig-secure            = true
-    hs-crypto                = true
     apprapp                  = true
     globalcatalog-collection = true
     event-notifications      = true
