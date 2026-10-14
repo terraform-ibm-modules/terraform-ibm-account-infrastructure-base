@@ -100,6 +100,10 @@ locals {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
     }
+    "hs-crypto" = {
+      enforcement_mode = var.cbr_enforcement_mode
+      global_deny      = false
+    }
     "IAM" = {
       enforcement_mode = var.cbr_enforcement_mode
       global_deny      = false
