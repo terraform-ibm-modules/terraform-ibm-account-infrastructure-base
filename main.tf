@@ -186,6 +186,22 @@ module "trusted_profile_projects" {
   }]
 }
 
+#############################################################################
+# HPCS Deprecation Warning Check
+#############################################################################
+
+check "warn_hpcs_deprecation" {
+  assert {
+    condition = !(
+      var.provision_cbr && (
+        contains(var.cbr_kms_service_targeted_by_prewired_rules, "hs-crypto") ||
+        contains(keys(var.cbr_target_service_details), "hs-crypto")
+      )
+    )
+    error_message = "WARNING (Non-fatal, execution will continue): Hyper Protect Crypto Services (hs-crypto) is enabled in the configuration. Note that IBM Cloud Hyper Protect Crypto Services is deprecated. Consider migrating to a supported alternative."
+  }
+}
+
 module "cbr_fscloud" {
   count                                  = var.provision_cbr ? 1 : 0
   source                                 = "terraform-ibm-modules/cbr/ibm//modules/fscloud"
